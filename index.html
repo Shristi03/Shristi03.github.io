@@ -2,363 +2,318 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Shristi Sharma | AI & Analytics in Finance Portfolio</title>
+  <title>Shristi Sharma | AI & Analytics Finance Portfolio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <style>
-    :root{
-      --ink:#0a2540;
-      --text:#1a1a1a;
-      --muted:#4a4a4a;
-      --border:#e6e6e6;
-      --soft:#fafafa;
-      --white:#ffffff;
+    :root {
+      --navy: #0b2a45;
+      --text-dark: #0f172a;
+      --text-muted: #4b5563;
+      --border-light: #e5e7eb;
+      --bg-soft: #f8fafc;
     }
 
-    body{
-      margin:0;
-      font-family: Arial, Helvetica, sans-serif;
-      color:var(--text);
-      background: var(--white);
-      line-height:1.6;
+    * {
+      box-sizing: border-box;
     }
 
-    a{ color:var(--ink); text-decoration:none; font-weight:700; }
-    a:hover{ text-decoration:underline; }
-
-    /* ===== HERO (keep this layout) ===== */
-    header{
-      background: var(--ink);
-      color:#fff;
-      padding:56px 0;
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: var(--text-dark);
+      background: white;
+      line-height: 1.6;
     }
 
-    .container{
-      max-width:1100px;
-      margin:0 auto;
-      padding:0 40px;
+    /* ---------- HERO ---------- */
+    header {
+      background: var(--navy);
+      color: white;
+      padding: 64px 80px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 48px;
     }
 
-    .hero{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:40px;
-      flex-wrap:wrap;
+    header h1 {
+      margin: 0 0 16px 0;
+      font-size: 40px;
     }
 
-    .hero h1{
-      margin:0;
-      font-size:44px;
-      letter-spacing:-0.2px;
+    header p {
+      font-size: 18px;
+      max-width: 720px;
+      margin: 0;
     }
 
-    .hero p{
-      margin:14px 0 0 0;
-      max-width:760px;
-      font-size:18px;
-      color: rgba(255,255,255,0.92);
+    .profile-pic {
+      width: 160px;
+      height: 160px;
+      border-radius: 12px;
+      object-fit: cover;
+      border: 3px solid rgba(255,255,255,0.25);
     }
 
-    .profile-pic{
-      width:170px;
-      height:210px;
-      object-fit:cover;
-      border-radius:8px;
-      border: 1px solid rgba(255,255,255,0.18);
-      box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+    /* ---------- LAYOUT ---------- */
+    main {
+      padding: 72px 80px;
+      max-width: 1400px;
+      margin: auto;
     }
 
-    /* ===== Sections ===== */
-    section{
-      padding:56px 0;
+    section {
+      margin-bottom: 96px;
     }
 
-    .kicker{
-      font-size:12px;
-      letter-spacing:0.16em;
-      text-transform:uppercase;
-      color:#6b7280;
-      margin:0 0 8px 0;
+    .eyebrow {
+      font-size: 12px;
+      letter-spacing: 0.14em;
+      color: #6b7280;
+      margin-bottom: 8px;
+      display: inline-block;
     }
 
-    h2{
-      margin:0;
-      color:var(--ink);
-      font-size:28px;
-      letter-spacing:-0.2px;
+    h2 {
+      font-size: 32px;
+      margin: 0 0 20px 0;
     }
 
-    .subtext{
-      margin:12px 0 0 0;
-      color:var(--muted);
-      max-width:980px;
+    h3 {
+      margin-top: 0;
+      margin-bottom: 12px;
+      font-size: 18px;
     }
 
-    .divider{
-      height:1px;
-      background:#efefef;
-      max-width:1100px;
-      margin:0 auto;
+    p {
+      margin-top: 0;
     }
 
-    /* ===== Side-by-side navigation section ===== */
-    .dual-nav{
-      display:grid;
+    /* ---------- ABOUT ---------- */
+    .about {
+      max-width: 900px;
+    }
+
+    .about .intro {
+      font-size: 18px;
+      margin-bottom: 24px;
+    }
+
+    .education {
+      margin: 28px 0;
+      font-size: 15px;
+      color: var(--text-muted);
+    }
+
+    .context {
+      margin-top: 24px;
+      color: var(--text-muted);
+    }
+
+    /* ---------- DUAL SECTIONS ---------- */
+    .dual-sections {
+      display: grid;
       grid-template-columns: 1fr 1fr;
-      gap:18px;
-      align-items:start;
-      margin-top:18px;
+      gap: 72px;
+      align-items: start;
     }
 
-    .nav-panel{
-      border:1px solid var(--border);
-      border-radius:12px;
-      background: var(--white);
-      padding:18px;
+    .section-panel {
+      background: white;
+      border-radius: 18px;
+      padding: 40px 36px;
+      box-shadow: 0 14px 40px rgba(0,0,0,0.05);
     }
 
-    .nav-panel h3{
-      margin:0 0 6px 0;
-      color:var(--ink);
-      font-size:18px;
+    .section-panel p.section-desc {
+      color: var(--text-muted);
+      margin-bottom: 28px;
     }
 
-    .nav-panel .hint{
-      margin:0 0 14px 0;
-      color:var(--muted);
-      font-size:14px;
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(260px, 1fr));
+      gap: 24px;
     }
 
-    .nav-grid{
-      display:grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap:12px;
+    .card {
+      border: 1px solid var(--border-light);
+      border-radius: 14px;
+      padding: 24px;
+      background: white;
+      min-height: 150px;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
     }
 
-    .nav-tile{
-      border:1px solid var(--border);
-      border-radius:10px;
-      padding:12px;
-      min-height:92px;
-      background: var(--white);
-      display:flex;
-      flex-direction:column;
-      justify-content:space-between;
-      transition: transform 0.08s ease-in-out;
+    .card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.06);
     }
 
-    .nav-tile strong{
-      color:var(--ink);
-      font-size:14px;
-      display:block;
-      line-height:1.2;
+    .card p {
+      margin: 0;
+      font-size: 14.5px;
+      color: var(--text-muted);
     }
 
-    .nav-tile span{
-      color:var(--muted);
-      font-size:12px;
-      margin-top:6px;
-      display:block;
-      line-height:1.35;
-      font-weight:400;
+    /* ---------- LINKS ---------- */
+    .links a {
+      margin-right: 16px;
+      text-decoration: none;
+      font-weight: 600;
+      color: var(--navy);
     }
 
-    .nav-tile:hover{
-      transform: translateY(-1px);
-    }
+    /* ---------- RESPONSIVE ---------- */
+    @media (max-width: 1100px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
 
-    /* Footer */
-    footer{
-      background:#f4f4f4;
-      border-top:1px solid var(--border);
-      padding:28px 0;
-      font-size:14px;
-      color:#555;
-    }
-
-    /* ===== Responsive ===== */
-    @media (max-width: 980px){
-      .container{ padding:0 22px; }
-      .dual-nav{ grid-template-columns:1fr; }
-      .nav-grid{ grid-template-columns: repeat(2, 1fr); }
-    }
-
-    @media (max-width: 560px){
-      .hero h1{ font-size:34px; }
-      .nav-grid{ grid-template-columns:1fr; }
+      .dual-sections {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
 
 <body>
 
-  <!-- ===== HERO ===== -->
+  <!-- HERO -->
   <header>
-    <div class="container">
-      <div class="hero">
-        <div>
-          <h1>Shristi Sharma</h1>
-          <p>
-            Portfolio focused on <strong>AI and Analytics in Finance</strong>, spanning risk and quantitative modeling,
-            consumer finance decisioning, cloud analytics, BI storytelling, and GenAI systems.
-          </p>
-        </div>
-        <img src="assets/profile.png" alt="Shristi Sharma" class="profile-pic" />
-      </div>
+    <div>
+      <h1>Shristi Sharma</h1>
+      <p>
+        Portfolio focused on <strong>AI and Analytics in Finance</strong>, spanning risk and quantitative
+        modeling, consumer finance decisioning, cloud analytics, BI storytelling,
+        and GenAI systems.
+      </p>
     </div>
+
+    <img src="assets/profile.png" alt="Shristi Sharma" class="profile-pic" />
   </header>
 
-  <!-- ===== ABOUT ===== -->
-  <section>
-    <div class="container">
-      <p class="kicker">OVERVIEW</p>
+  <main>
+
+    <!-- ABOUT -->
+    <section class="about">
+      <span class="eyebrow">OVERVIEW</span>
       <h2>About Shristi Sharma</h2>
 
-      <p class="subtext">
-        I’m a Business Data Analyst focused on applied AI and analytics in finance, spanning risk modeling, consumer finance decisioning,
-        cloud analytics, BI storytelling, and GenAI systems.<br>
-        <strong>Education:</strong> Master of Science in Business Analytics and Project Management, University of Connecticut, School of Business (May 2025)
-                                    Bachelor of Technology in Information Technology, Manipal University Jaipur, School of Engineering (May 2021)
-
+      <p class="intro">
+        I’m a Business Data Analyst focused on applying AI and advanced analytics to
+        real-world financial problems, combining technical depth with business decision-making.
       </p>
 
-      <p class="subtext">
-        This portfolio showcases enterprise-minded projects at the intersection of artificial intelligence, finance, analytics, and modern data platforms—
-        organized to help different audiences quickly navigate relevant work (Quant, Risk, Consumer Finance, GenAI, BI, Cloud, Strategy).
-      </p>
-    </div>
-  </section>
-
-  <div class="divider"></div>
-
-  <!-- ===== SIDE-BY-SIDE NAV: Focus Areas + Core Capabilities ===== -->
-  <section>
-    <div class="container">
-      <div class="dual-nav">
-
-        <!-- LEFT: Portfolio Focus Areas -->
-        <div class="nav-panel">
-          <h3>Portfolio Focus Areas</h3>
-          <p class="hint">Navigate by problem domain and financial use case.</p>
-
-          <div class="nav-grid">
-            <a class="nav-tile" href="focus/genai.html">
-              <div>
-                <strong>AI / Generative AI</strong>
-                <span>RAG, LLM evaluation, prompt workflows</span>
-              </div>
-            </a>
-
-            <a class="nav-tile" href="focus/quant.html">
-              <div>
-                <strong>Quant / Markets</strong>
-                <span>Optimization, simulations, return modeling</span>
-              </div>
-            </a>
-
-            <a class="nav-tile" href="focus/credit-cards.html">
-              <div>
-                <strong>Credit Cards / Consumer</strong>
-                <span>Profitability, delinquency, churn, strategy</span>
-              </div>
-            </a>
-
-            <a class="nav-tile" href="focus/risk.html">
-              <div>
-                <strong>Risk, Governance & Controls</strong>
-                <span>MRM, controls, stress testing, audit-ready</span>
-              </div>
-            </a>
-
-            <a class="nav-tile" href="focus/bi.html">
-              <div>
-                <strong>BI / Executive Analytics</strong>
-                <span>Dashboards, KPI narratives, exec reporting</span>
-              </div>
-            </a>
-
-            <a class="nav-tile" href="focus/cloud.html">
-              <div>
-                <strong>Cloud Data / MLOps</strong>
-                <span>AWS/Azure pipelines, scalable architectures</span>
-              </div>
-            </a>
-          </div>
-        </div>
-
-        <!-- RIGHT: Core Capabilities -->
-        <div class="nav-panel">
-          <h3>Core Capabilities</h3>
-          <p class="hint">Navigate by the methods, systems, and analytics depth.</p>
-
-          <div class="nav-grid">
-            <a class="nav-tile" href="capabilities/genai.html">
-              <div>
-                <strong>AI & GenAI Systems</strong>
-                <span>LLMs, evaluation, agents, governance</span>
-              </div>
-            </a>
-
-            <a class="nav-tile" href="capabilities/risk-quant.html">
-              <div>
-                <strong>Risk & Quant Analytics</strong>
-                <span>Credit risk, scenarios, stress tests</span>
-              </div>
-            </a>
-
-            <a class="nav-tile" href="capabilities/stats-modeling.html">
-              <div>
-                <strong>Finance & Statistical Modeling</strong>
-                <span>Forecasting, hypothesis tests, simulations</span>
-              </div>
-            </a>
-
-            <a class="nav-tile" href="capabilities/cloud-platforms.html">
-              <div>
-                <strong>Cloud Analytics & Platforms</strong>
-                <span>Warehousing, pipelines, orchestration</span>
-              </div>
-            </a>
-
-            <a class="nav-tile" href="capabilities/bi-viz.html">
-              <div>
-                <strong>BI & Visualization</strong>
-                <span>Power BI/Tableau, executive storytelling</span>
-              </div>
-            </a>
-
-            <a class="nav-tile" href="capabilities/decision-intel.html">
-              <div>
-                <strong>Strategic Decision Intelligence</strong>
-                <span>What-if, KPI interpretation, recommendations</span>
-              </div>
-            </a>
-          </div>
-        </div>
-
+      <div class="education">
+        <strong>Education</strong><br />
+        M.S. in Business Analytics & Project Management — University of Connecticut (May 2025)<br />
+        B.Tech in Information Technology — Manipal University Jaipur (May 2021)
       </div>
-    </div>
-  </section>
 
-  <div class="divider"></div>
-
-  <!-- ===== LINKS ===== -->
-  <section>
-    <div class="container">
-      <h2>Links</h2>
-      <p class="subtext">
-        <a href="https://github.com/Shristi03" target="_blank">GitHub</a> |
-        <a href="https://www.linkedin.com/in/shristi-sharma08/" target="_blank">LinkedIn</a>
+      <p class="context">
+        This portfolio showcases enterprise-minded projects at the intersection of
+        artificial intelligence, finance, analytics, and modern data platforms—organized
+        to help different audiences quickly navigate relevant work across Quant, Risk,
+        Consumer Finance, GenAI, BI, Cloud, and Strategy.
       </p>
-    </div>
-  </section>
+    </section>
 
-  <footer>
-    <div class="container">
-      © 2026 Shristi Sharma · AI in Finance & Analytics Portfolio
-    </div>
-  </footer>
+    <!-- PORTFOLIO NAVIGATION -->
+    <section class="dual-sections">
+
+      <!-- FOCUS AREAS -->
+      <div class="section-panel">
+        <h2>Portfolio Focus Areas</h2>
+        <p class="section-desc">
+          Navigate by business problem domain and financial use case.
+        </p>
+
+        <div class="cards">
+          <div class="card">
+            <h3>AI / Generative AI</h3>
+            <p>RAG systems, LLM evaluation, prompt engineering, GenAI workflows.</p>
+          </div>
+
+          <div class="card">
+            <h3>Quant / Markets</h3>
+            <p>Portfolio optimization, simulations, return and risk modeling.</p>
+          </div>
+
+          <div class="card">
+            <h3>Credit Cards / Consumer Finance</h3>
+            <p>Profitability, delinquency, churn analysis, and strategy.</p>
+          </div>
+
+          <div class="card">
+            <h3>Risk, Governance & Controls</h3>
+            <p>MRM, controls, stress testing, audit-ready analytics.</p>
+          </div>
+
+          <div class="card">
+            <h3>BI / Executive Analytics</h3>
+            <p>Dashboards, KPI narratives, executive reporting.</p>
+          </div>
+
+          <div class="card">
+            <h3>Cloud Data / MLOps</h3>
+            <p>AWS & Azure pipelines, scalable architectures.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- CORE CAPABILITIES -->
+      <div class="section-panel">
+        <h2>Core Capabilities</h2>
+        <p class="section-desc">
+          Navigate by technical methods, systems, and analytics depth.
+        </p>
+
+        <div class="cards">
+          <div class="card">
+            <h3>AI & GenAI Systems</h3>
+            <p>LLMs, agents, evaluation frameworks, governance-aware AI.</p>
+          </div>
+
+          <div class="card">
+            <h3>Risk & Quant Analytics</h3>
+            <p>Credit risk, scenarios, stress testing, portfolio analytics.</p>
+          </div>
+
+          <div class="card">
+            <h3>Finance & Statistical Modeling</h3>
+            <p>Forecasting, hypothesis testing, simulations.</p>
+          </div>
+
+          <div class="card">
+            <h3>Cloud Analytics & Platforms</h3>
+            <p>Warehousing, orchestration, data pipelines.</p>
+          </div>
+
+          <div class="card">
+            <h3>BI & Visualization</h3>
+            <p>Power BI, Tableau, executive storytelling.</p>
+          </div>
+
+          <div class="card">
+            <h3>Strategic Decision Intelligence</h3>
+            <p>What-if analysis, KPI interpretation, recommendations.</p>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- LINKS -->
+    <section class="links">
+      <h2>Links</h2>
+      <a href="https://github.com/Shristi03" target="_blank">GitHub</a>
+      <a href="https://www.linkedin.com" target="_blank">LinkedIn</a>
+    </section>
+
+  </main>
 
 </body>
 </html>

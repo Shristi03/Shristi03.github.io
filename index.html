@@ -28,7 +28,7 @@
       position:relative;
       background:var(--navy);
       color:#fff;
-      padding:64px 80px 84px; /* extra bottom padding so overlap looks clean */
+      padding:72px 80px 140px; /* more bottom padding so overlap looks intentional */
       overflow:visible;
     }
 
@@ -51,25 +51,32 @@
       max-width:760px;
     }
 
-    /* Overlapping photo (half on blue, half on white) */
+    /* Overlapping photo (bigger + deeper overlap into white) */
     .profile-pic{
       position:absolute;
       right:80px;
-      top:36px;
-      width:190px;              /* bigger */
-      height:190px;             /* bigger */
-      border-radius:16px;
+      top:40px;
+
+      width:280px;
+      height:280px;
+
+      border-radius:20px;
       object-fit:cover;
-      border:3px solid rgba(255,255,255,0.28);
-      box-shadow:0 18px 45px rgba(0,0,0,0.25);
-      transform: translateY(70px); /* pushes it down to overlap into white area */
-      z-index:5;
+
       background:#fff;
+      border:4px solid rgba(255,255,255,0.6);
+
+      box-shadow:
+        0 30px 60px rgba(0,0,0,0.28),
+        0 0 0 1px rgba(0,0,0,0.04);
+
+      transform: translateY(120px); /* KEY: pushes deeper into white */
+      z-index:10;
     }
 
     /* ---------- MAIN LAYOUT ---------- */
     main{
-      max-width:1500px;     /* wider */
+      max-width:1500px;
       margin:0 auto;
       padding:72px 80px 96px;
     }
@@ -101,7 +108,7 @@
     /* ---------- ABOUT ---------- */
     .about{
       max-width:980px;
-      padding-top:18px;
+      padding-top:40px; /* more breathing room below the hero + photo */
     }
 
     .about .intro{
@@ -130,16 +137,16 @@
     .dual-sections{
       display:grid;
       grid-template-columns:1fr 1fr;
-      gap:84px;                /* more space between the two */
-      align-items:stretch;     /* force equal-height panels */
+      gap:84px;
+      align-items:stretch;
     }
 
     .section-panel{
       background:#fff;
       border-radius:18px;
-      padding:44px 40px;       /* bigger panels */
+      padding:44px 40px;
       box-shadow:var(--shadow);
-      display:flex;            /* make internal layout stretch nicely */
+      display:flex;
       flex-direction:column;
       min-height:100%;
     }
@@ -152,12 +159,11 @@
 
     .cards{
       display:grid;
-      grid-template-columns:repeat(2, minmax(280px, 1fr)); /* wider cards */
+      grid-template-columns:repeat(2, minmax(280px, 1fr));
       gap:26px;
-      flex:1; /* helps panels balance height */
+      flex:1;
     }
 
-    /* Make cards fill nicely without crowding */
     .card{
       border:1px solid var(--border);
       border-radius:14px;
@@ -188,7 +194,7 @@
 
     /* ---------- RESPONSIVE ---------- */
     @media (max-width:1200px){
-      header{ padding:56px 28px 84px; }
+      header{ padding:64px 28px 140px; }
       main{ padding:64px 28px 90px; }
       .profile-pic{ right:28px; }
       .dual-sections{ gap:44px; }
@@ -199,8 +205,8 @@
       .profile-pic{
         position:static;
         transform:none;
-        width:170px;
-        height:170px;
+        width:190px;
+        height:190px;
         margin-top:22px;
         box-shadow:0 12px 32px rgba(0,0,0,0.18);
       }
@@ -221,7 +227,7 @@
       <div>
         <h1>Shristi Sharma</h1>
         <p>
-          Portfolio focused on <strong>AI and Analytics in Finance</strong>, spanning risk and quantitative
+          Hands-on experience in <strong>AI and Analytics in Finance</strong>, spanning risk and quantitative
           modeling, consumer finance decisioning, cloud analytics, BI storytelling, and GenAI systems.
         </p>
       </div>
@@ -235,7 +241,7 @@
     <!-- ABOUT -->
     <section class="about">
       <span class="eyebrow">OVERVIEW</span>
-      <h2>About</h2>
+      <h2>About Me</h2>
 
       <p class="intro">
         I’m a Business Data Analyst focused on applying AI and advanced analytics to real-world financial problems,
@@ -249,15 +255,14 @@
       </div>
 
       <p class="context">
-        This portfolio showcases enterprise-minded projects at the intersection of Artificial Intelligence, Finance,
-        Analytics and Modern Data Platforms. Relevant across various domains like
-        Quant, Risk, Consumer Finance, GenAI, BI, Cloud and Strategy.
+        This portfolio showcases enterprise-minded projects at the intersection of artificial intelligence, finance,
+        analytics, and modern data platforms. Relevant across various genres such as
+        Quant, Risk, Consumer Finance, GenAI, BI, Cloud, and Strategy.
       </p>
     </section>
 
     <!-- NAVIGATION: Focus Areas + Capabilities -->
     <section class="dual-sections">
-
       <!-- Portfolio Focus Areas -->
       <div class="section-panel">
         <h2>Portfolio Focus Areas</h2>
@@ -273,12 +278,12 @@
           </div>
 
           <div class="card">
-            <h3>Quant / Markets</h3>
+            <h3>Quant &amp; Markets</h3>
             <p>Portfolio optimization, simulations, return/risk modeling, and market analytics.</p>
           </div>
 
           <div class="card">
-            <h3>Credit Cards / Consumer Finance</h3>
+            <h3>Credit Cards &amp; Consumer Finance</h3>
             <p>Profitability, delinquency, churn, cohort analysis, and strategy decisioning.</p>
           </div>
 
@@ -288,12 +293,12 @@
           </div>
 
           <div class="card">
-            <h3>BI / Executive Analytics</h3>
+            <h3>BI &amp; Executive Analytics</h3>
             <p>Dashboards, KPI narratives, performance reporting, and leadership-ready insights.</p>
           </div>
 
           <div class="card">
-            <h3>Cloud Data / MLOps</h3>
+            <h3>Cloud Data &amp; MLOps</h3>
             <p>AWS/Azure analytics pipelines, scalable architectures, and production-minded AI systems.</p>
           </div>
         </div>
@@ -340,7 +345,6 @@
           </div>
         </div>
       </div>
-
     </section>
 
     <!-- LINKS -->

@@ -1,84 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Shristi Sharma | AI & Analytics in Finance Portfolio</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <style>
+    :root {
+      --ink: #0a2540;
+      --text: #1a1a1a;
+      --muted: #4a4a4a;
+      --border: #e6e6e6;
+      --panel: #ffffff;
+      --bg: #ffffff;
+      --soft: #fafafa;
+    }
+
     body {
       margin: 0;
       font-family: Arial, Helvetica, sans-serif;
-      background-color: #ffffff;
-      color: #1a1a1a;
+      background: var(--bg);
+      color: var(--text);
       line-height: 1.6;
     }
 
-    header {
-      background-color: #0a2540;
-      color: #ffffff;
-      padding: 60px 40px;
-    }
+    a { color: var(--ink); text-decoration: none; font-weight: bold; }
+    a:hover { text-decoration: underline; }
 
-    header h1 {
-      margin: 0;
-      font-size: 36px;
-    }
-
-    header p {
-      max-width: 900px;
-      font-size: 18px;
-      margin-top: 15px;
-    }
-
-    section {
-      padding: 50px 40px;
+    /* --- Layout container --- */
+    .container {
       max-width: 1100px;
-      margin: auto;
+      margin: 0 auto;
+      padding: 0 40px;
     }
 
-    h2 {
-      color: #0a2540;
-      margin-bottom: 20px;
+    /* --- Header / Hero --- */
+    header {
+      background: var(--ink);
+      color: #fff;
+      padding: 56px 0;
     }
 
-    .projects {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 25px;
-    }
-
-    .card {
-      border: 1px solid #e0e0e0;
-      padding: 20px;
-      border-radius: 6px;
-      background: #fafafa;
-    }
-
-    .card h3 {
-      margin-top: 0;
-      color: #0a2540;
-    }
-
-    footer {
-      background: #f4f4f4;
-      padding: 30px 40px;
-      text-align: center;
-      font-size: 14px;
-      color: #555;
-    }
-
-    a {
-      color: #0a2540;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-
-    /* --- Hero layout (photo optional) --- */
     .hero {
       display: flex;
       align-items: center;
@@ -87,51 +49,177 @@
       flex-wrap: wrap;
     }
 
-    .hero-text {
-      max-width: 750px;
+    .hero h1 {
+      margin: 0;
+      font-size: 40px;
+      letter-spacing: -0.2px;
+    }
+
+    .hero p {
+      margin: 14px 0 0 0;
+      max-width: 760px;
+      font-size: 18px;
+      color: rgba(255,255,255,0.92);
     }
 
     .profile-pic {
-      width: 160px;
-      height: 200px;
+      width: 170px;
+      height: 210px;
       object-fit: cover;
-      border-radius: 6px;
-      border: 1px solid rgba(255,255,255,0.2);
-    }
-
-    /* --- Role tiles (Explore by Hiring Need) --- */
-    .role-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 18px;
-    }
-
-    .role-tile {
-      border: 1px solid #e0e0e0;
-      background: #ffffff;
       border-radius: 8px;
+      border: 1px solid rgba(255,255,255,0.18);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+    }
+
+    /* --- Sections --- */
+    section {
+      padding: 44px 0;
+      border-top: 1px solid transparent;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+      margin-bottom: 18px;
+    }
+
+    .kicker {
+      font-size: 12px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #6b7280;
+      margin: 0 0 6px 0;
+    }
+
+    h2 {
+      margin: 0;
+      color: var(--ink);
+      font-size: 26px;
+      letter-spacing: -0.2px;
+    }
+
+    .subtext {
+      margin: 10px 0 0 0;
+      color: var(--muted);
+      max-width: 900px;
+    }
+
+    /* --- Domain tiles (perfect 3x2 on desktop) --- */
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 18px;
+    }
+
+    .tile {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 10px;
       padding: 18px;
+      min-height: 170px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
       transition: transform 0.08s ease-in-out;
     }
 
-    .role-tile:hover {
-      transform: translateY(-2px);
-    }
+    .tile:hover { transform: translateY(-2px); }
 
-    .role-tile h3 {
+    .tile h3 {
       margin: 0 0 8px 0;
-      color: #0a2540;
+      color: var(--ink);
+      font-size: 18px;
     }
 
-    .role-tile p {
+    .tile p {
       margin: 0;
       color: #333;
     }
 
-    .role-tile a {
-      display: inline-block;
-      margin-top: 10px;
+    .tile .go {
+      margin-top: 14px;
       font-weight: bold;
+    }
+
+    /* --- Two-column panel for context (right side) --- */
+    .split {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 18px;
+      margin-top: 18px;
+    }
+
+    .panel {
+      background: var(--soft);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 18px;
+    }
+
+    .panel h4 {
+      margin: 0 0 10px 0;
+      color: var(--ink);
+      font-size: 16px;
+    }
+
+    .panel ul {
+      margin: 0;
+      padding-left: 18px;
+      color: #333;
+    }
+
+    /* --- Featured projects --- */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+      margin-top: 18px;
+    }
+
+    .project-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 18px;
+    }
+
+    .project-card h3 {
+      margin: 0 0 8px 0;
+      color: var(--ink);
+      font-size: 18px;
+    }
+
+    .tags {
+      margin-top: 10px;
+      font-size: 12px;
+      color: #6b7280;
+    }
+
+    /* --- Footer --- */
+    footer {
+      background: #f4f4f4;
+      border-top: 1px solid var(--border);
+      padding: 28px 0;
+      margin-top: 18px;
+      font-size: 14px;
+      color: #555;
+    }
+
+    /* --- Responsive --- */
+    @media (max-width: 980px) {
+      .container { padding: 0 22px; }
+      .grid-3 { grid-template-columns: repeat(2, 1fr); }
+      .split { grid-template-columns: 1fr; }
+      .grid-2 { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 560px) {
+      .grid-3 { grid-template-columns: 1fr; }
+      .hero h1 { font-size: 34px; }
     }
   </style>
 </head>
@@ -139,151 +227,164 @@
 <body>
 
 <header>
-  <div class="hero">
-    <div class="hero-text">
-      <h1>Shristi Sharma</h1>
-      <p>
-        Portfolio focused on <strong>AI and Analytics in Finance</strong>, covering risk modeling, financial analysis,
-        cloud-based data solutions, business intelligence, and enterprise decision-making.
-      </p>
-    </div>
+  <div class="container">
+    <div class="hero">
+      <div>
+        <h1>Shristi Sharma</h1>
+        <p>
+          Portfolio focused on <strong>AI and Analytics in Finance</strong>, spanning risk and quantitative modeling,
+          consumer finance decisioning, cloud analytics, BI storytelling, and GenAI systems.
+        </p>
+      </div>
 
-    <!-- Optional photo: upload your photo to assets/profile.png -->
-    <!-- If you don't want the photo yet, you can delete the img line below -->
-    <img src="assets/profile.png" alt="Shristi Sharma" class="profile-pic">
+      <!-- Ensure your photo exists at assets/profile.jpg -->
+      <img src="assets/profile.png" alt="Shristi Sharma" class="profile-pic" />
+    </div>
   </div>
 </header>
 
 <section>
-  <h2>About This Portfolio</h2>
-  <p>
-    This portfolio showcases applied projects at the intersection of artificial intelligence, finance, analytics,
-    and cloud data platforms. The work emphasizes practical business problems faced by banks, financial institutions,
-    and consulting organizations.
-  </p>
+  <div class="container">
+    <p class="kicker">Overview</p>
+    <h2>About</h2>
+    <p class="subtext">
+      This portfolio showcases applied, enterprise-minded projects at the intersection of artificial intelligence, finance, analytics, and modern data platforms.
+      Each area is designed to be easy to navigate for different audiences (Quant, Risk, Consumer finance, GenAI, BI, Cloud, Strategy).
+    </p>
+  </div>
 </section>
 
-<section>
-  <h2>Key Domains of Work</h2>
-  <p>
-  Explore applied focus areas across artificial intelligence, finance, and analytics.
-  Each domain showcases practical projects and frameworks designed to support
-  data-driven decision-making at scale.
-  </p>
-
-  <div class="role-grid">
-    <div class="role-tile">
-      <h3>AI / Generative AI</h3>
-      <p>Prompt engineering, LLM evaluation, RAG systems, and governance-aware GenAI workflows.</p>
-      <a href="#ai-genai">Go →</a>
+<section id="domains">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <p class="kicker">Navigate</p>
+        <h2>Key Domains of Work</h2>
+        <p class="subtext">
+          Choose a domain to explore projects, methods, and artifacts (documentation, visuals, code, and outcomes).
+        </p>
+      </div>
     </div>
 
-    <div class="role-tile">
-      <h3>Quant / Markets</h3>
-      <p>Portfolio optimization, risk-return modeling, simulations, and statistical finance.</p>
-      <a href="#quant">Go →</a>
-    </div>
+    <div class="split">
+      <div>
+        <div class="grid-3">
+          <div class="tile">
+            <div>
+              <h3>AI / Generative AI</h3>
+              <p>Prompt engineering, LLM evaluation, RAG systems, and governance-aware GenAI workflows.</p>
+            </div>
+            <div class="go"><a href="#featured">Go →</a></div>
+          </div>
 
-    <div class="role-tile">
-      <h3>Credit Cards / Consumer Finance</h3>
-      <p>Portfolio KPIs, delinquency analysis, profitability, churn, and decision strategy.</p>
-      <a href="#cards">Go →</a>
-    </div>
+          <div class="tile">
+            <div>
+              <h3>Quant / Markets</h3>
+              <p>Portfolio optimization, risk-return modeling, simulations, and statistical finance.</p>
+            </div>
+            <div class="go"><a href="#featured">Go →</a></div>
+          </div>
 
-    <div class="role-tile">
-      <h3>Risk, Governance & Controls</h3>
-      <p>Model risk management, data quality controls, stress testing, and audit-ready reporting.</p>
-      <a href="#risk">Go →</a>
-    </div>
+          <div class="tile">
+            <div>
+              <h3>Credit Cards / Consumer Finance</h3>
+              <p>Portfolio KPIs, delinquency analysis, profitability, churn, and decision strategy.</p>
+            </div>
+            <div class="go"><a href="#featured">Go →</a></div>
+          </div>
 
-    <div class="role-tile">
-      <h3>BI / Executive Analytics</h3>
-      <p>Power BI/Tableau dashboards, KPI storytelling, and executive-ready decision support.</p>
-      <a href="#bi">Go →</a>
-    </div>
+          <div class="tile">
+            <div>
+              <h3>Risk, Governance & Controls</h3>
+              <p>Model risk management, data quality controls, stress testing, and audit-ready reporting.</p>
+            </div>
+            <div class="go"><a href="#featured">Go →</a></div>
+          </div>
 
-    <div class="role-tile">
-      <h3>Cloud Data / MLOps</h3>
-      <p>AWS/Azure analytics pipelines, scalable architectures, and production-minded AI systems.</p>
-      <a href="#cloud">Go →</a>
+          <div class="tile">
+            <div>
+              <h3>BI / Executive Analytics</h3>
+              <p>Power BI/Tableau dashboards, KPI storytelling, and executive-ready decision support.</p>
+            </div>
+            <div class="go"><a href="#featured">Go →</a></div>
+          </div>
+
+          <div class="tile">
+            <div>
+              <h3>Cloud Data / MLOps</h3>
+              <p>AWS/Azure analytics pipelines, scalable architectures, and production-minded AI systems.</p>
+            </div>
+            <div class="go"><a href="#featured">Go →</a></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <h4>What you’ll see in each project</h4>
+        <ul>
+          <li>Problem framing & business context</li>
+          <li>Methods (stats, ML/GenAI, decisioning)</li>
+          <li>Data & governance considerations</li>
+          <li>Artifacts: notebooks, dashboards, docs</li>
+          <li>Outcome metrics and next-step roadmap</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="featured">
+  <div class="container">
+    <p class="kicker">Proof</p>
+    <h2>Featured Work</h2>
+    <p class="subtext">
+      A curated set of projects that demonstrate depth in AI/GenAI, finance analytics, and enterprise delivery.
+      (These will link to full project pages as we build them.)
+    </p>
+
+    <div class="grid-2">
+      <div class="project-card">
+        <h3>Credit Card Portfolio Early-Warning System</h3>
+        <p>Detect delinquency risk shifts using cohort KPIs, drift checks, and interpretable risk drivers.</p>
+        <div class="tags">Tags: Consumer Finance · Risk · Time Series · Explainability</div>
+      </div>
+
+      <div class="project-card">
+        <h3>GenAI Risk & Policy Analyst (RAG + Eval Harness)</h3>
+        <p>RAG pipeline + evaluation suite (LLM-as-judge, safety, PII checks) for controlled enterprise usage.</p>
+        <div class="tags">Tags: GenAI · RAG · Evaluation · Governance</div>
+      </div>
+
+      <div class="project-card">
+        <h3>Quant Portfolio Optimization & Stress Scenarios</h3>
+        <p>Optimize risk-return under constraints and evaluate scenario shocks with clear reporting.</p>
+        <div class="tags">Tags: Quant · Optimization · Simulation · Risk</div>
+      </div>
+
+      <div class="project-card">
+        <h3>Executive KPI Suite (Power BI/Tableau)</h3>
+        <p>Financial performance dashboards with narrative insights and decision-ready drilldowns.</p>
+        <div class="tags">Tags: BI · KPI Storytelling · Finance Analytics</div>
+      </div>
     </div>
   </div>
 </section>
 
 <section>
-  <h2>Core Project Areas</h2>
-
-  <!-- Anchor targets (so the role tiles can jump somewhere for now) -->
-  <div id="ai-genai"></div>
-  <div id="quant"></div>
-  <div id="cards"></div>
-  <div id="risk"></div>
-  <div id="bi"></div>
-  <div id="cloud"></div>
-
-  <div class="projects">
-
-    <div class="card">
-      <h3>Artificial Intelligence & Generative AI</h3>
-      <p>
-        Applied AI and GenAI projects in finance, including explainable models,
-        LLM-based analysis, intelligent automation, and decision support systems.
-      </p>
-    </div>
-
-    <div class="card">
-      <h3>Risk & Quantitative Analytics</h3>
-      <p>
-        Credit risk, stress testing, quantitative modeling, portfolio risk,
-        scenario analysis, and governance-aware risk frameworks.
-      </p>
-    </div>
-
-    <div class="card">
-      <h3>Finance & Statistical Modeling</h3>
-      <p>
-        Financial modeling, forecasting, hypothesis testing, simulations,
-        and statistically grounded business analysis.
-      </p>
-    </div>
-
-    <div class="card">
-      <h3>Cloud Analytics & Data Platforms</h3>
-      <p>
-        Analytics and AI solutions built on AWS and Azure, including data pipelines,
-        cloud analytics, and scalable enterprise architectures.
-      </p>
-    </div>
-
-    <div class="card">
-      <h3>Business Intelligence & Visualization</h3>
-      <p>
-        Power BI and Tableau dashboards for financial performance,
-        risk monitoring, and executive-level reporting.
-      </p>
-    </div>
-
-    <div class="card">
-      <h3>Strategic Decision Intelligence</h3>
-      <p>
-        Executive insights, what-if analysis, KPI interpretation,
-        and data-driven strategy recommendations.
-      </p>
-    </div>
-
+  <div class="container">
+    <p class="kicker">Connect</p>
+    <h2>Links</h2>
+    <p class="subtext">
+      <a href="https://github.com/Shristi03" target="_blank">GitHub</a> |
+      <a href="https://www.linkedin.com/in/shristi-sharma08/" target="_blank">LinkedIn</a>
+    </p>
   </div>
-</section>
-
-<section>
-  <h2>Links</h2>
-  <p>
-    <a href="https://github.com/Shristi03" target="_blank">GitHub</a> |
-    <a href="https://www.linkedin.com/in/shristi-sharma08/" target="_blank">LinkedIn</a>
-  </p>
 </section>
 
 <footer>
-  © 2026 Shristi Sharma · AI & Analytics in Finance  Portfolio
+  <div class="container">
+    © 2026 Shristi Sharma · AI in Finance & Analytics Portfolio
+  </div>
 </footer>
 
 </body>

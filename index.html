@@ -6,300 +6,337 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <style>
-    :root {
-      --navy: #0b2a45;
-      --text-dark: #0f172a;
-      --text-muted: #4b5563;
-      --border-light: #e5e7eb;
-      --bg-soft: #f8fafc;
+    :root{
+      --navy:#0b2a45;
+      --text:#0f172a;
+      --muted:#4b5563;
+      --border:#e5e7eb;
+      --shadow:0 14px 40px rgba(0,0,0,0.06);
     }
 
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      color: var(--text-dark);
-      background: white;
-      line-height: 1.6;
+    *{ box-sizing:border-box; }
+    body{
+      margin:0;
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+      color:var(--text);
+      background:#fff;
+      line-height:1.6;
     }
 
     /* ---------- HERO ---------- */
-    header {
-      background: var(--navy);
-      color: white;
-      padding: 64px 80px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 48px;
+    header{
+      position:relative;
+      background:var(--navy);
+      color:#fff;
+      padding:64px 80px 84px; /* extra bottom padding so overlap looks clean */
+      overflow:visible;
     }
 
-    header h1 {
-      margin: 0 0 16px 0;
-      font-size: 40px;
+    .hero-inner{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:48px;
     }
 
-    header p {
-      font-size: 18px;
-      max-width: 720px;
-      margin: 0;
+    header h1{
+      margin:0 0 16px 0;
+      font-size:42px;
+      letter-spacing:-0.02em;
     }
 
-    .profile-pic {
-      width: 160px;
-      height: 160px;
-      border-radius: 12px;
-      object-fit: cover;
-      border: 3px solid rgba(255,255,255,0.25);
+    header p{
+      margin:0;
+      font-size:18px;
+      max-width:760px;
     }
 
-    /* ---------- LAYOUT ---------- */
-    main {
-      padding: 72px 80px;
-      max-width: 1400px;
-      margin: auto;
+    /* Overlapping photo (half on blue, half on white) */
+    .profile-pic{
+      position:absolute;
+      right:80px;
+      top:36px;
+      width:190px;              /* bigger */
+      height:190px;             /* bigger */
+      border-radius:16px;
+      object-fit:cover;
+      border:3px solid rgba(255,255,255,0.28);
+      box-shadow:0 18px 45px rgba(0,0,0,0.25);
+      transform: translateY(70px); /* pushes it down to overlap into white area */
+      z-index:5;
+      background:#fff;
     }
 
-    section {
-      margin-bottom: 96px;
+    /* ---------- MAIN LAYOUT ---------- */
+    main{
+      max-width:1500px;     /* wider */
+      margin:0 auto;
+      padding:72px 80px 96px;
     }
 
-    .eyebrow {
-      font-size: 12px;
-      letter-spacing: 0.14em;
-      color: #6b7280;
-      margin-bottom: 8px;
-      display: inline-block;
+    section{ margin-bottom:96px; }
+
+    .eyebrow{
+      font-size:12px;
+      letter-spacing:0.14em;
+      color:#6b7280;
+      display:inline-block;
+      margin-bottom:10px;
     }
 
-    h2 {
-      font-size: 32px;
-      margin: 0 0 20px 0;
+    h2{
+      font-size:34px;
+      margin:0 0 18px 0;
+      letter-spacing:-0.02em;
     }
 
-    h3 {
-      margin-top: 0;
-      margin-bottom: 12px;
-      font-size: 18px;
+    h3{
+      margin:0 0 12px 0;
+      font-size:18px;
+      letter-spacing:-0.01em;
     }
 
-    p {
-      margin-top: 0;
-    }
+    p{ margin:0; }
 
     /* ---------- ABOUT ---------- */
-    .about {
-      max-width: 900px;
+    .about{
+      max-width:980px;
+      padding-top:18px;
     }
 
-    .about .intro {
-      font-size: 18px;
-      margin-bottom: 24px;
+    .about .intro{
+      font-size:18px;
+      margin-bottom:22px;
     }
 
-    .education {
-      margin: 28px 0;
-      font-size: 15px;
-      color: var(--text-muted);
+    .education{
+      margin:26px 0 10px;
+      padding:18px 18px;
+      border-left:4px solid var(--border);
+      background:#fafafa;
+      border-radius:12px;
+      color:var(--muted);
+      font-size:15px;
     }
 
-    .context {
-      margin-top: 24px;
-      color: var(--text-muted);
+    .context{
+      margin-top:18px;
+      color:var(--muted);
+      font-size:15.5px;
+      line-height:1.7;
     }
 
-    /* ---------- DUAL SECTIONS ---------- */
-    .dual-sections {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 72px;
-      align-items: start;
+    /* ---------- SIDE-BY-SIDE PANELS ---------- */
+    .dual-sections{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:84px;                /* more space between the two */
+      align-items:stretch;     /* force equal-height panels */
     }
 
-    .section-panel {
-      background: white;
-      border-radius: 18px;
-      padding: 40px 36px;
-      box-shadow: 0 14px 40px rgba(0,0,0,0.05);
+    .section-panel{
+      background:#fff;
+      border-radius:18px;
+      padding:44px 40px;       /* bigger panels */
+      box-shadow:var(--shadow);
+      display:flex;            /* make internal layout stretch nicely */
+      flex-direction:column;
+      min-height:100%;
     }
 
-    .section-panel p.section-desc {
-      color: var(--text-muted);
-      margin-bottom: 28px;
+    .section-desc{
+      color:var(--muted);
+      margin:4px 0 26px 0;
+      font-size:15.5px;
     }
 
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(260px, 1fr));
-      gap: 24px;
+    .cards{
+      display:grid;
+      grid-template-columns:repeat(2, minmax(280px, 1fr)); /* wider cards */
+      gap:26px;
+      flex:1; /* helps panels balance height */
     }
 
-    .card {
-      border: 1px solid var(--border-light);
-      border-radius: 14px;
-      padding: 24px;
-      background: white;
-      min-height: 150px;
-      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    /* Make cards fill nicely without crowding */
+    .card{
+      border:1px solid var(--border);
+      border-radius:14px;
+      padding:24px 24px 22px;
+      background:#fff;
+      min-height:150px;
+      transition:transform .15s ease, box-shadow .15s ease;
     }
 
-    .card:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+    .card:hover{
+      transform:translateY(-2px);
+      box-shadow:0 10px 26px rgba(0,0,0,0.07);
     }
 
-    .card p {
-      margin: 0;
-      font-size: 14.5px;
-      color: var(--text-muted);
+    .card p{
+      color:var(--muted);
+      font-size:14.5px;
+      line-height:1.55;
     }
 
     /* ---------- LINKS ---------- */
-    .links a {
-      margin-right: 16px;
-      text-decoration: none;
-      font-weight: 600;
-      color: var(--navy);
+    .links a{
+      margin-right:16px;
+      text-decoration:none;
+      font-weight:700;
+      color:var(--navy);
     }
 
     /* ---------- RESPONSIVE ---------- */
-    @media (max-width: 1100px) {
-      header {
-        flex-direction: column;
-        align-items: flex-start;
-      }
+    @media (max-width:1200px){
+      header{ padding:56px 28px 84px; }
+      main{ padding:64px 28px 90px; }
+      .profile-pic{ right:28px; }
+      .dual-sections{ gap:44px; }
+    }
 
-      .dual-sections {
-        grid-template-columns: 1fr;
+    @media (max-width:1024px){
+      .dual-sections{ grid-template-columns:1fr; }
+      .profile-pic{
+        position:static;
+        transform:none;
+        width:170px;
+        height:170px;
+        margin-top:22px;
+        box-shadow:0 12px 32px rgba(0,0,0,0.18);
       }
+      .hero-inner{ flex-direction:column; }
+    }
+
+    @media (max-width:620px){
+      .cards{ grid-template-columns:1fr; }
+      header h1{ font-size:34px; }
     }
   </style>
 </head>
 
 <body>
-
   <!-- HERO -->
   <header>
-    <div>
-      <h1>Shristi Sharma</h1>
-      <p>
-        Portfolio focused on <strong>AI and Analytics in Finance</strong>, spanning risk and quantitative
-        modeling, consumer finance decisioning, cloud analytics, BI storytelling,
-        and GenAI systems.
-      </p>
+    <div class="hero-inner">
+      <div>
+        <h1>Shristi Sharma</h1>
+        <p>
+          Portfolio focused on <strong>AI and Analytics in Finance</strong>, spanning risk and quantitative
+          modeling, consumer finance decisioning, cloud analytics, BI storytelling, and GenAI systems.
+        </p>
+      </div>
     </div>
 
-    <img src="assets/profile.png" alt="Shristi Sharma" class="profile-pic" />
+    <!-- Image overlaps blue + white -->
+    <img class="profile-pic" src="assets/profile.png" alt="Shristi Sharma" />
   </header>
 
   <main>
-
     <!-- ABOUT -->
     <section class="about">
       <span class="eyebrow">OVERVIEW</span>
-      <h2>About Shristi Sharma</h2>
+      <h2>About</h2>
 
       <p class="intro">
-        I’m a Business Data Analyst focused on applying AI and advanced analytics to
-        real-world financial problems, combining technical depth with business decision-making.
+        I’m a Business Data Analyst focused on applying AI and advanced analytics to real-world financial problems,
+        combining technical depth with business decision-making.
       </p>
 
       <div class="education">
         <strong>Education</strong><br />
-        M.S. in Business Analytics & Project Management — University of Connecticut (May 2025)<br />
+        M.S. in Business Analytics &amp; Project Management — University of Connecticut (May 2025)<br />
         B.Tech in Information Technology — Manipal University Jaipur (May 2021)
       </div>
 
       <p class="context">
-        This portfolio showcases enterprise-minded projects at the intersection of
-        artificial intelligence, finance, analytics, and modern data platforms—organized
-        to help different audiences quickly navigate relevant work across Quant, Risk,
-        Consumer Finance, GenAI, BI, Cloud, and Strategy.
+        This portfolio showcases enterprise-minded projects at the intersection of Artificial Intelligence, Finance,
+        Analytics and Modern Data Platforms. Relevant across various domains like
+        Quant, Risk, Consumer Finance, GenAI, BI, Cloud and Strategy.
       </p>
     </section>
 
-    <!-- PORTFOLIO NAVIGATION -->
+    <!-- NAVIGATION: Focus Areas + Capabilities -->
     <section class="dual-sections">
 
-      <!-- FOCUS AREAS -->
+      <!-- Portfolio Focus Areas -->
       <div class="section-panel">
         <h2>Portfolio Focus Areas</h2>
-        <p class="section-desc">
-          Navigate by business problem domain and financial use case.
-        </p>
+        <p class="section-desc">Navigate by business problem domain and financial use case.</p>
 
         <div class="cards">
           <div class="card">
-            <h3>AI / Generative AI</h3>
-            <p>RAG systems, LLM evaluation, prompt engineering, GenAI workflows.</p>
+            <h3>AI in Finance</h3>
+            <p>
+              Prompt engineering, RAG systems, LLM integration, decision support workflows,
+              and governance-aware GenAI use cases in financial services.
+            </p>
           </div>
 
           <div class="card">
             <h3>Quant / Markets</h3>
-            <p>Portfolio optimization, simulations, return and risk modeling.</p>
+            <p>Portfolio optimization, simulations, return/risk modeling, and market analytics.</p>
           </div>
 
           <div class="card">
             <h3>Credit Cards / Consumer Finance</h3>
-            <p>Profitability, delinquency, churn analysis, and strategy.</p>
+            <p>Profitability, delinquency, churn, cohort analysis, and strategy decisioning.</p>
           </div>
 
           <div class="card">
-            <h3>Risk, Governance & Controls</h3>
-            <p>MRM, controls, stress testing, audit-ready analytics.</p>
+            <h3>Risk, Governance &amp; Controls</h3>
+            <p>Model risk themes, controls-minded analytics, stress testing, audit-ready reporting.</p>
           </div>
 
           <div class="card">
             <h3>BI / Executive Analytics</h3>
-            <p>Dashboards, KPI narratives, executive reporting.</p>
+            <p>Dashboards, KPI narratives, performance reporting, and leadership-ready insights.</p>
           </div>
 
           <div class="card">
             <h3>Cloud Data / MLOps</h3>
-            <p>AWS & Azure pipelines, scalable architectures.</p>
+            <p>AWS/Azure analytics pipelines, scalable architectures, and production-minded AI systems.</p>
           </div>
         </div>
       </div>
 
-      <!-- CORE CAPABILITIES -->
+      <!-- Core Capabilities -->
       <div class="section-panel">
         <h2>Core Capabilities</h2>
-        <p class="section-desc">
-          Navigate by technical methods, systems, and analytics depth.
-        </p>
+        <p class="section-desc">Navigate by technical methods, systems, and analytics depth.</p>
 
         <div class="cards">
           <div class="card">
-            <h3>AI & GenAI Systems</h3>
-            <p>LLMs, agents, evaluation frameworks, governance-aware AI.</p>
+            <h3>AI (Generative + Agentic)</h3>
+            <p>
+              LLMs, agents, tool use/orchestration, evaluation, guardrails, and governance-aware AI delivery.
+            </p>
           </div>
 
           <div class="card">
-            <h3>Risk & Quant Analytics</h3>
-            <p>Credit risk, scenarios, stress testing, portfolio analytics.</p>
+            <h3>Risk &amp; Quant Analytics</h3>
+            <p>Credit risk, scenarios, stress testing, portfolio analytics, and risk drivers.</p>
           </div>
 
           <div class="card">
-            <h3>Finance & Statistical Modeling</h3>
-            <p>Forecasting, hypothesis testing, simulations.</p>
+            <h3>Finance &amp; Statistical Modeling</h3>
+            <p>
+              Forecasting, hypothesis testing, A/B experimentation, simulations, and statistically grounded analysis.
+            </p>
           </div>
 
           <div class="card">
-            <h3>Cloud Analytics & Platforms</h3>
-            <p>Warehousing, orchestration, data pipelines.</p>
+            <h3>Cloud Analytics &amp; Platforms</h3>
+            <p>Warehousing, orchestration, data pipelines, and scalable analytics systems.</p>
           </div>
 
           <div class="card">
-            <h3>BI & Visualization</h3>
-            <p>Power BI, Tableau, executive storytelling.</p>
+            <h3>BI &amp; Visualization</h3>
+            <p>Power BI/Tableau dashboards, KPI storytelling, and executive-ready reporting.</p>
           </div>
 
           <div class="card">
             <h3>Strategic Decision Intelligence</h3>
-            <p>What-if analysis, KPI interpretation, recommendations.</p>
+            <p>What-if analysis, KPI interpretation, prioritization, and decision recommendations.</p>
           </div>
         </div>
       </div>
@@ -309,11 +346,9 @@
     <!-- LINKS -->
     <section class="links">
       <h2>Links</h2>
-      <a href="https://github.com/Shristi03" target="_blank">GitHub</a>
-      <a href="https://www.linkedin.com" target="_blank">LinkedIn</a>
+      <a href="https://github.com/Shristi03" target="_blank" rel="noreferrer">GitHub</a>
+      <a href="https://www.linkedin.com/in/shristi-sharma08" target="_blank" rel="noreferrer">LinkedIn</a>
     </section>
-
   </main>
-
 </body>
 </html>

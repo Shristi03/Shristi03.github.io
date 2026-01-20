@@ -2,370 +2,363 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Shristi Sharma | AI in Finance & Analytics Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Shristi Sharma | AI & Analytics in Finance Portfolio</title>
 
   <style>
     :root{
-      --ink:#0b1f3a;
-      --navy:#072743;
-      --slate:#0f172a;
-      --muted:#5b677a;
+      --ink:#0b1320;
+      --muted:#556074;
+      --brand:#0b2a45;
       --bg:#ffffff;
       --card:#ffffff;
-      --line:#e6e9ef;
-      --shadow: 0 12px 28px rgba(2, 6, 23, .08);
-      --shadow-soft: 0 8px 18px rgba(2, 6, 23, .06);
-      --radius-xl: 22px;
-      --radius-lg: 16px;
-      --radius-md: 12px;
+      --border:#e6e9ef;
+      --shadow: 0 20px 60px rgba(0,0,0,.08);
+      --soft: 0 10px 30px rgba(0,0,0,.06);
+      --radius:18px;
     }
 
     *{ box-sizing:border-box; }
     body{
       margin:0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      color: var(--slate);
-      background: var(--bg);
-      line-height: 1.55;
+      font-family: -apple-system, BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+      color:var(--ink);
+      background:var(--bg);
+      line-height:1.6;
     }
 
-    /* HERO */
+    /* =========================
+       HERO / HEADER (DO NOT TOUCH LAYOUT)
+       ========================= */
     .hero{
-      background: var(--navy);
+      position:relative;
+      background:var(--brand);
       color:#fff;
-      padding: 56px 72px 84px;
-      position: relative;
+      padding:70px 70px 86px;
       overflow:hidden;
-    }
-    .hero-inner{
-      max-width: 1120px;
-      margin: 0 auto;
-      display:flex;
-      gap: 28px;
-      align-items:flex-start;
-      justify-content: space-between;
-      position: relative;
-      z-index: 1;
     }
     .hero h1{
       margin:0 0 14px;
-      font-size: 52px;
-      letter-spacing: -0.02em;
-      font-weight: 800;
+      font-size:48px;
+      letter-spacing:-.02em;
     }
     .hero p{
-      margin: 0;
-      max-width: 720px;
-      font-size: 18px;
-      color: rgba(255,255,255,.92);
+      margin:0;
+      max-width:920px;
+      font-size:17px;
+      opacity:.95;
     }
 
-    /* profile image overlaps hero + white section */
-    .profile-wrap{
-      flex: 0 0 auto;
-      width: 210px;
-      height: 210px;
-      border-radius: 18px;
-      border: 4px solid rgba(255,255,255,.85);
-      box-shadow: 0 18px 40px rgba(0,0,0,.25);
-      overflow:hidden;
-      position: absolute;
-      right: 72px;
-      top: 44px;
-      transform: translateY(24px);
-    }
-    .profile-wrap img{
-      width:100%;
-      height:100%;
-      object-fit: cover;
-      display:block;
+    /* Photo overlaps blue + white */
+    .hero-photo{
+      position:absolute;
+      right:70px;
+      top:58px;
+      width:260px;
+      height:260px;
+      border-radius:18px;
+      border:6px solid rgba(255,255,255,.9);
+      box-shadow: var(--shadow);
+      object-fit:cover;
+      transform: translateY(44px); /* pushes it into white area */
+      background:#fff;
     }
 
-    /* PAGE */
-    .container{
-      max-width: 1120px;
-      margin: 0 auto;
-      padding: 0 24px 70px;
+    /* =========================
+       CONTENT WRAPPER
+       ========================= */
+    .wrap{
+      max-width:1200px;
+      margin:0 auto;
+      padding:54px 28px 70px;
     }
 
-    /* ABOUT */
-    .about{
-      padding: 46px 0 18px;
-    }
     .kicker{
-      font-size: 11px;
-      letter-spacing: .16em;
-      text-transform: uppercase;
-      color: rgba(15, 23, 42, .55);
+      font-size:12px;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      color:#7b879b;
       margin: 0 0 10px;
     }
-    .about h2{
-      margin: 0 0 16px;
-      font-size: 38px;
-      letter-spacing: -0.02em;
-      color: var(--ink);
+    h2{
+      margin:0 0 14px;
+      font-size:42px;
+      letter-spacing:-.02em;
     }
-    .about .lead{
-      max-width: 820px;
-      margin: 0 0 18px;
-      font-size: 16px;
-      color: rgba(15, 23, 42, .78);
+    .lead{
+      margin:0 0 22px;
+      max-width:980px;
+      color:#2b3445;
+      font-size:16.5px;
     }
+
+    /* Education card */
     .edu{
-      background: #f7f8fb;
-      border: 1px solid var(--line);
-      border-radius: var(--radius-lg);
-      padding: 18px 18px;
-      max-width: 820px;
-      margin: 0 0 18px;
+      margin:22px 0 22px;
+      padding:18px 20px;
+      background:#f7f8fb;
+      border:1px solid #eef1f6;
+      border-radius:14px;
+      max-width:980px;
     }
-    .edu strong{
-      display:block;
-      font-size: 13px;
-      color: rgba(15, 23, 42, .75);
-      margin-bottom: 6px;
-      letter-spacing: .02em;
-    }
-    .edu div{
-      font-size: 14px;
-      color: rgba(15, 23, 42, .75);
-    }
+    .edu b{ display:block; margin-bottom:6px; }
+    .edu div{ color:#2b3445; font-size:14.5px; }
 
-    /* STACK BAR (Python highlight) */
-    .stack-bar{
-      margin: 18px 0 26px;
-      padding: 16px 18px;
-      border-radius: var(--radius-xl);
-      background: linear-gradient(180deg, #ffffff 0%, #fbfbfe 100%);
-      border: 1px solid var(--line);
-      box-shadow: var(--shadow-soft);
-      display:flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      align-items:center;
-    }
-    .stack-title{
-      font-weight: 800;
-      color: var(--ink);
-      margin-right: 8px;
+    /* =========================
+       PRIMARY STACK STRIP
+       ========================= */
+    .stack{
+      margin-top:18px;
+      margin-bottom:34px;
+      padding:18px 18px;
+      border:1px solid var(--border);
+      border-radius:16px;
+      background:#fff;
+      box-shadow: var(--soft);
       display:flex;
       align-items:center;
-      gap: 8px;
-      white-space: nowrap;
+      justify-content:space-between;
+      gap:16px;
+      flex-wrap:wrap;
     }
-    .pill{
-      display:inline-flex;
+    .stack .title{
+      font-weight:700;
+      letter-spacing:-.01em;
+      font-size:16px;
+      margin-right:10px;
+      white-space:nowrap;
+    }
+    .chips{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
       align-items:center;
-      gap: 8px;
-      padding: 8px 12px;
-      border-radius: 999px;
-      border: 1px solid var(--line);
-      background: #fff;
-      font-size: 13px;
-      color: rgba(15, 23, 42, .78);
-      white-space: nowrap;
     }
-    .pill.primary{
-      border-color: rgba(37, 99, 235, .28);
-      background: rgba(37, 99, 235, .08);
-      color: #0b2a55;
-      font-weight: 700;
-    }
-    .dot{
-      width:8px; height:8px; border-radius: 50%;
-      background: rgba(37, 99, 235, .9);
-      display:inline-block;
+    .chip{
+      padding:7px 10px;
+      border:1px solid var(--border);
+      border-radius:999px;
+      background:#fbfcff;
+      font-size:13px;
+      color:#2b3445;
+      white-space:nowrap;
     }
 
-    /* TWO PANELS */
-    .grid-2{
+    /* =========================
+       TWO BIG SECTIONS (SIDE BY SIDE)
+       ========================= */
+    .two-col{
       display:grid;
       grid-template-columns: 1fr 1fr;
-      gap: 28px;
-      align-items: start;
+      gap:44px;                 /* MORE SPACE between the two big sections */
+      align-items:stretch;      /* ensures equal height columns */
+      margin-top:26px;
     }
+
     .panel{
-      background: rgba(255,255,255,.96);
-      border: 1px solid rgba(230,233,239,.8);
+      background: #fbfbfd;
       border-radius: 26px;
-      box-shadow: var(--shadow);
-      padding: 26px 26px 26px;
+      padding: 34px 30px 30px;
+      box-shadow: var(--soft);
+      min-height: 100%;
+      display:flex;
+      flex-direction:column;
     }
+
     .panel h3{
-      margin: 0 0 10px;
-      font-size: 34px;
-      letter-spacing: -0.02em;
-      color: var(--ink);
+      margin:0 0 10px;
+      font-size:34px;
+      letter-spacing:-.02em;
     }
     .panel .sub{
-      margin: 0 0 22px;
-      color: rgba(15, 23, 42, .70);
-      font-size: 14px;
+      margin:0 0 18px;
+      color: var(--muted);
+      font-size:14.5px;
     }
 
-    .cards{
+    /* Grid inside each panel */
+    .cards-grid{
       display:grid;
       grid-template-columns: 1fr 1fr;
-      gap: 16px;
+      gap:18px;
+      margin-top:10px;
+      flex:1; /* makes both panels stretch equally */
     }
 
-    /* Mini-cards are LINKS now */
-    .mini-card{
-      display:block;                 /* important for <a> */
-      text-decoration: none;         /* remove underline */
-      color: inherit;                /* no blue link text */
-      background: #fff;
-      border: 1px solid rgba(212, 218, 230, .85);
-      border-radius: 16px;
-      padding: 18px 18px 16px;
-      min-height: 120px;
-      transition: transform .12s ease, box-shadow .12s ease, border-color .12s ease;
+    /* Clickable card wrapper */
+    .card-link{
+      display:block;
+      text-decoration:none;
+      color:inherit;
+      height:100%;
     }
-    .mini-card:hover{
-      transform: translateY(-2px);
-      box-shadow: 0 10px 22px rgba(2,6,23,.08);
-      border-color: rgba(37, 99, 235, .28);
+
+    /* The actual small cards */
+    .mini-card{
+      background: var(--card);
+      border:1px solid var(--border);
+      border-radius: 14px;
+      padding:16px 16px 14px;
+      height:100%;
+      transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+      display:flex;
+      flex-direction:column;
+      justify-content:flex-start;
+      min-height: 140px; /* keeps grid visually consistent */
     }
     .mini-card h4{
-      margin: 0 0 8px;
-      font-size: 18px;
-      color: var(--ink);
-      letter-spacing: -0.01em;
+      margin:0 0 10px;
+      font-size:18px;
+      letter-spacing:-.01em;
     }
     .mini-card p{
-      margin: 0;
-      font-size: 13.5px;
-      color: rgba(15, 23, 42, .68);
+      margin:0;
+      color:#4a556a;
+      font-size:14px;
     }
 
-    /* LINKS section */
+    .card-link:hover .mini-card{
+      transform: translateY(-3px);
+      box-shadow: 0 12px 28px rgba(0,0,0,.08);
+      border-color:#d8deea;
+    }
+
+    /* Bottom Links */
     .links{
-      padding: 42px 0 0;
-      border-top: 1px solid var(--line);
-      margin-top: 44px;
+      margin-top:52px;
+      padding-top:18px;
+      border-top:1px solid #eef1f6;
+      color:#2b3445;
+      font-size:14.5px;
     }
-    .links h3{
-      margin: 0 0 10px;
-      font-size: 20px;
-      color: var(--ink);
-    }
-    .links a{
-      color: #0b2a55;
-      font-weight: 700;
-      text-decoration: none;
-    }
-    .links a:hover{ text-decoration: underline; }
+    .links a{ color:var(--brand); text-decoration:none; font-weight:600; }
+    .links a:hover{ text-decoration:underline; }
 
     /* Responsive */
     @media (max-width: 980px){
-      .hero{ padding: 44px 24px 92px; }
-      .profile-wrap{ right: 24px; }
-      .grid-2{ grid-template-columns: 1fr; }
-      .panel h3{ font-size: 30px; }
-      .hero h1{ font-size: 42px; }
-    }
-    @media (max-width: 640px){
-      .profile-wrap{
-        width: 160px; height: 160px;
-        right: 18px; top: 26px;
+      .hero{ padding:56px 22px 84px; }
+      .hero h1{ font-size:40px; }
+      .hero-photo{
+        right:22px;
+        width:210px;
+        height:210px;
+        transform: translateY(54px);
       }
-      .hero-inner{ padding-right: 0; }
-      .cards{ grid-template-columns: 1fr; }
-      .about h2{ font-size: 30px; }
+      .two-col{ grid-template-columns: 1fr; gap:26px; }
+      .panel{ padding:28px 22px; }
+      h2{ font-size:36px; }
+    }
+
+    @media (max-width: 560px){
+      .hero-photo{
+        position:static;
+        transform:none;
+        width:170px;
+        height:170px;
+        margin-top:18px;
+      }
+      .cards-grid{ grid-template-columns: 1fr; }
     }
   </style>
 </head>
 
 <body>
+
   <!-- HERO -->
-  <section class="hero">
-    <div class="hero-inner">
-      <div>
-        <h1>Shristi Sharma</h1>
-        <p>
-          Portfolio focused on <b>AI and Analytics in Finance</b>, spanning risk & quantitative modeling,
-          consumer finance decisioning, cloud analytics, BI storytelling, and GenAI systems.
-        </p>
-      </div>
-    </div>
+  <header class="hero">
+    <h1>Shristi Sharma</h1>
+    <p>
+      Hands-on experience in <b>AI and Analytics in Finance</b>, spanning risk and quantitative modeling,
+      consumer finance decisioning, cloud analytics, BI storytelling, and GenAI systems.
+    </p>
+    <img class="hero-photo" src="assets/profile.png" alt="Shristi Sharma profile photo">
+  </header>
 
-    <!-- Update path if your image lives elsewhere -->
-    <div class="profile-wrap" aria-label="Profile photo">
-      <img src="assets/profile.jpg" alt="Shristi Sharma" />
-    </div>
-  </section>
+  <main class="wrap">
 
-  <div class="container">
     <!-- ABOUT -->
-    <section class="about">
-      <p class="kicker">OVERVIEW</p>
-      <h2>About Shristi Sharma</h2>
-      <p class="lead">
-        I’m a Business Data Analyst focused on applying AI and advanced analytics to real-world financial problems,
-        combining technical depth with business decision-making.
-      </p>
+    <div class="kicker">OVERVIEW</div>
+    <h2>About Me</h2>
+    <p class="lead">
+      I’m a Business Data Analyst focused on applying AI and advanced analytics to real-world financial problems,
+      combining technical depth with business decision-making.
+    </p>
 
-      <div class="edu">
-        <strong>Education</strong>
-        <div>M.S. in Business Analytics & Project Management — University of Connecticut (May 2025)</div>
-        <div>B.Tech in Information Technology — Manipal University Jaipur (May 2021)</div>
-      </div>
+    <div class="edu">
+      <b>Education</b>
+      <div>M.S. in Business Analytics &amp; Project Management — School of Business, University of Connecticut (May 2025)</div>
+      <div>B.Tech in Information Technology — College of Engineering, Manipal University Jaipur (May 2021)</div>
+    </div>
 
-      <p class="lead">
-        This portfolio showcases enterprise-minded projects across artificial intelligence, finance, analytics, and modern data platforms—organized
-        to help different audiences quickly navigate relevant work (Quant, Risk, Consumer Finance, GenAI, BI, Cloud, Strategy).
-      </p>
+    <p class="lead" style="max-width:980px;">
+      This portfolio showcases enterprise-minded projects at the intersection of Artificial Intelligence, Finance,
+      Analytics and Modern Data Platforms—organized to help different audiences quickly navigate relevant work across
+      Quant, Risk, Consumer Finance, GenAI, BI, Cloud, and Strategy.
+    </p>
 
-      <!-- PYTHON / STACK BAR -->
-      <div class="stack-bar" role="note" aria-label="Primary stack">
-        <div class="stack-title"><span class="dot"></span> Primary Stack</div>
-        <span class="pill primary">Python (core)</span>
-        <span class="pill">SQL</span>
-        <span class="pill">Streamlit</span>
-        <span class="pill">Pandas / NumPy</span>
-        <span class="pill">Matplotlib / Plotly</span>
-        <span class="pill">Power BI</span>
-        <span class="pill">Azure / AWS</span>
+    <!-- PRIMARY STACK STRIP (NEW) -->
+    <section class="stack" aria-label="Primary stack">
+      <div class="title">Primary Stack</div>
+      <div class="chips">
+        <span class="chip">Python</span>
+        <span class="chip">SQL</span>
+        <span class="chip">Statistics</span>
+        <span class="chip">Machine Learning</span>
+        <span class="chip">GenAI / LLMs</span>
+        <span class="chip">Power BI / Tableau</span>
+        <span class="chip">AWS / Azure</span>
       </div>
     </section>
 
-    <!-- TWO PANELS -->
-    <section class="grid-2" aria-label="Navigation sections">
+    <!-- TWO SECTIONS -->
+    <section class="two-col">
+
       <!-- Portfolio Focus Areas -->
       <div class="panel">
         <h3>Portfolio Focus Areas</h3>
         <p class="sub">Navigate by business problem domain and financial use case.</p>
 
-        <div class="cards">
-          <a class="mini-card" href="categories/ai-in-finance.html">
-            <h4>AI in Finance</h4>
-            <p>Prompt engineering, RAG systems, LLM integration, decision support workflows, and governance-aware GenAI use cases.</p>
+        <div class="cards-grid">
+          <a class="card-link" href="categories/ai-in-finance.html">
+            <div class="mini-card">
+              <h4>AI in Finance</h4>
+              <p>Prompt engineering, RAG systems, LLM integration, decision support workflows, and governance-aware GenAI use cases in financial services.</p>
+            </div>
           </a>
 
-          <a class="mini-card" href="categories/quant-markets.html">
-            <h4>Quant & Markets</h4>
-            <p>Portfolio optimization, simulations, return/risk modeling, and market analytics.</p>
+          <a class="card-link" href="categories/quant-markets.html">
+            <div class="mini-card">
+              <h4>Quant &amp; Markets</h4>
+              <p>Portfolio optimization, simulations, return/risk modeling, and market analytics.</p>
+            </div>
           </a>
 
-          <a class="mini-card" href="categories/credit-cards-consumer-finance.html">
-            <h4>Credit Cards & Consumer Finance</h4>
-            <p>Profitability, delinquency, churn, cohort analysis, and strategy decisioning.</p>
+          <a class="card-link" href="categories/credit-cards-consumer-finance.html">
+            <div class="mini-card">
+              <h4>Credit Cards &amp; Consumer Finance</h4>
+              <p>Profitability, delinquency, churn, cohort analysis, and strategy decisioning.</p>
+            </div>
           </a>
 
-          <a class="mini-card" href="categories/risk-governance-controls.html">
-            <h4>Risk, Governance & Controls</h4>
-            <p>Model risk themes, controls-minded analytics, stress testing, and audit-ready reporting.</p>
+          <a class="card-link" href="categories/risk-governance-controls.html">
+            <div class="mini-card">
+              <h4>Risk, Governance &amp; Controls</h4>
+              <p>Model risk themes, controls-minded analytics, stress testing, audit-ready reporting.</p>
+            </div>
           </a>
 
-          <a class="mini-card" href="categories/bi-executive-analytics.html">
-            <h4>BI & Executive Analytics</h4>
-            <p>Dashboards, KPI narratives, performance reporting, and leadership-ready insights.</p>
+          <a class="card-link" href="categories/bi-executive-analytics.html">
+            <div class="mini-card">
+              <h4>BI &amp; Executive Analytics</h4>
+              <p>Dashboards, KPI narratives, performance reporting, and leadership-ready insights.</p>
+            </div>
           </a>
 
-          <a class="mini-card" href="categories/cloud-data-mlops.html">
-            <h4>Cloud Data & MLOps</h4>
-            <p>AWS/Azure analytics pipelines, scalable architectures, and production-minded AI systems.</p>
+          <a class="card-link" href="categories/cloud-data-mlops.html">
+            <div class="mini-card">
+              <h4>Cloud Data &amp; MLOps</h4>
+              <p>AWS/Azure analytics pipelines, scalable architectures, and production-minded AI systems.</p>
+            </div>
           </a>
         </div>
       </div>
@@ -375,49 +368,61 @@
         <h3>Core Capabilities</h3>
         <p class="sub">Navigate by technical methods, systems, and analytics depth.</p>
 
-        <div class="cards">
-          <a class="mini-card" href="categories/ai-generative-agentic.html">
-            <h4>AI (Generative + Agentic)</h4>
-            <p>LLMs, agents, tool use/orchestration, evaluation, guardrails, and governance-aware AI delivery.</p>
+        <div class="cards-grid">
+          <a class="card-link" href="capabilities/ai-genai-agentic.html">
+            <div class="mini-card">
+              <h4>AI (Generative + Agentic)</h4>
+              <p>LLMs, agents, tool use/orchestration, evaluation, guardrails, and governance-aware AI delivery.</p>
+            </div>
           </a>
 
-          <a class="mini-card" href="categories/risk-quant-analytics.html">
-            <h4>Risk & Quant Analytics</h4>
-            <p>Credit risk, scenarios, stress testing, portfolio analytics, and risk drivers.</p>
+          <a class="card-link" href="capabilities/risk-quant-analytics.html">
+            <div class="mini-card">
+              <h4>Risk &amp; Quant Analytics</h4>
+              <p>Credit risk, scenarios, stress testing, portfolio analytics, and risk drivers.</p>
+            </div>
           </a>
 
-          <a class="mini-card" href="categories/finance-statistical-modeling.html">
-            <h4>Finance & Statistical Modeling</h4>
-            <p>Forecasting, hypothesis testing, A/B experimentation, simulations, and statistically grounded analysis.</p>
+          <a class="card-link" href="capabilities/finance-stat-modeling.html">
+            <div class="mini-card">
+              <h4>Finance &amp; Statistical Modeling</h4>
+              <p>Forecasting, hypothesis testing, A/B experimentation, simulations, and statistically grounded analysis.</p>
+            </div>
           </a>
 
-          <a class="mini-card" href="categories/cloud-analytics-platforms.html">
-            <h4>Cloud Analytics & Platforms</h4>
-            <p>Warehousing, orchestration, data pipelines, and scalable analytics systems.</p>
+          <a class="card-link" href="capabilities/cloud-analytics-platforms.html">
+            <div class="mini-card">
+              <h4>Cloud Analytics &amp; Platforms</h4>
+              <p>Warehousing, orchestration, data pipelines, and scalable analytics systems.</p>
+            </div>
           </a>
 
-          <a class="mini-card" href="categories/bi-visualization.html">
-            <h4>BI & Visualization</h4>
-            <p>Power BI/Tableau dashboards, KPI storytelling, and executive-ready reporting.</p>
+          <a class="card-link" href="capabilities/bi-visualization.html">
+            <div class="mini-card">
+              <h4>BI &amp; Visualization</h4>
+              <p>Power BI/Tableau dashboards, KPI storytelling, and executive-ready reporting.</p>
+            </div>
           </a>
 
-          <a class="mini-card" href="categories/strategic-decision-intelligence.html">
-            <h4>Strategic Decision Intelligence</h4>
-            <p>What-if analysis, KPI interpretation, prioritization, and decision recommendations.</p>
+          <a class="card-link" href="capabilities/strategic-decision-intelligence.html">
+            <div class="mini-card">
+              <h4>Strategic Decision Intelligence</h4>
+              <p>What-if analysis, KPI interpretation, prioritization, and decision recommendations.</p>
+            </div>
           </a>
         </div>
       </div>
+
     </section>
 
     <!-- LINKS -->
-    <section class="links">
-      <h3>Links</h3>
-      <p>
-        <a href="https://github.com/Shristi03" target="_blank" rel="noopener noreferrer">GitHub</a>
-        &nbsp;|&nbsp;
-        <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-      </p>
-    </section>
-  </div>
+    <div class="links">
+      <b>Links:</b>
+      <a href="https://github.com/Shristi03" target="_blank" rel="noopener">GitHub</a>
+      &nbsp;|&nbsp;
+      <a href="#" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+
+  </main>
 </body>
 </html>

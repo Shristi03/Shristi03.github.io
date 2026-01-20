@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>BI & Executive Analytics | Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: #0f172a;
+      background: #ffffff;
+      line-height: 1.6;
+    }
+
+    header {
+      background: #0b2a45;
+      color: #ffffff;
+      padding: 48px 64px;
+    }
+
+    header h1 {
+      margin: 0 0 12px 0;
+      font-size: 36px;
+      letter-spacing: -0.02em;
+    }
+
+    header p {
+      max-width: 900px;
+      font-size: 17px;
+      margin: 0;
+      opacity: 0.95;
+    }
+
+    main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 56px 64px 80px;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 32px;
+    }
+
+    .project-card {
+      border: 1px solid #e5e7eb;
+      border-radius: 16px;
+      padding: 24px 26px;
+      background: #ffffff;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 14px 36px rgba(0,0,0,0.08);
+    }
+
+    .project-card h3 {
+      margin: 0 0 10px 0;
+      font-size: 20px;
+      letter-spacing: -0.01em;
+    }
+
+    .project-card p {
+      margin: 0 0 14px 0;
+      color: #4b5563;
+      font-size: 15px;
+    }
+
+    .tags {
+      margin-bottom: 16px;
+    }
+
+    .tag {
+      display: inline-block;
+      margin-right: 8px;
+      margin-bottom: 6px;
+      padding: 6px 10px;
+      font-size: 12px;
+      border-radius: 999px;
+      background: #f1f5f9;
+      color: #334155;
+      font-weight: 500;
+    }
+
+    .view-link {
+      text-decoration: none;
+      font-weight: 700;
+      color: #0b2a45;
+      font-size: 14px;
+    }
+
+    .view-link:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      header, main {
+        padding-left: 28px;
+        padding-right: 28px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <h1>BI & Executive Analytics</h1>
+    <p>
+      Projects focused on transforming raw data into executive-ready insights,
+      KPI narratives, and decision-support analytics used by leadership and
+      business stakeholders.
+    </p>
+  </header>
+
+  <!-- PROJECT LIST -->
+  <main>
+    <div class="projects-grid">
+
+      <!-- Auto-EDA Project Card -->
+      <div class="project-card">
+        <h3>Auto-EDA & Executive Insights Platform</h3>
+
+        <div class="tags">
+          <span class="tag">BI & Executive Analytics</span>
+          <span class="tag">BI & Visualization</span>
+          <span class="tag">Risk, Governance & Controls</span>
+        </div>
+
+        <p>
+          A domain-agnostic analytics platform that automates exploratory data analysis,
+          data quality checks, visual diagnostics, and executive-friendly summaries
+          for CSV datasets.
+        </p>
+
+        <a class="view-link" href="../projects/auto-eda.html">
+          View project →
+        </a>
+      </div>
+
+      <!-- Future projects will go here -->
+      <!--
+      <div class="project-card">
+        <h3>Future Project Name</h3>
+        ...
+      </div>
+      -->
+
+    </div>
+  </main>
+
+</body>
+</html>

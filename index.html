@@ -50,28 +50,38 @@
     }
 
     /* Photo overlaps blue + white */
+    .hero{
+      position:relative;
+      background:var(--brand);
+      color:#fff;
+      padding:70px 70px 86px;
+      overflow: visible; /* IMPORTANT: allow the photo to hang into white section */
+    }
+
+    /* Photo overlaps blue + white */
     .hero-photo{
       position:absolute;
       right:70px;
-      top:58px;
-      width:260px;
-      height:260px;
+      bottom:-72px;          /* THIS creates the overlap into the white section */
+      width:280px;           /* slightly bigger */
+      height:280px;
       border-radius:18px;
-      border:6px solid rgba(255,255,255,.9);
-      box-shadow: var(--shadow);
+      border:6px solid rgba(255,255,255,.95);
+      box-shadow: 0 20px 60px rgba(0,0,0,.18);
       object-fit:cover;
-      transform: translateY(44px); /* pushes it into white area */
       background:#fff;
     }
+
 
     /* =========================
        CONTENT WRAPPER
        ========================= */
-    .wrap{
-      max-width:1200px;
-      margin:0 auto;
-      padding:54px 28px 70px;
-    }
+      .wrap{
+        max-width:1200px;
+        margin:0 auto;
+        padding:90px 28px 70px; /* was 54px — increase so About doesn't go under photo */
+      }
+
 
     .kicker{
       font-size:12px;

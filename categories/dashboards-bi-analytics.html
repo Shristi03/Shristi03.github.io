@@ -149,31 +149,10 @@
       performance monitoring, data quality assessment, and executive communication.
     </p>
 
-    <div class="projects-grid">
+    <div class="projects-grid" id="projectsGrid">
 
       <!-- ================= PROJECT 1 ================= -->
-      <div class="project-card">
-        <h3>Auto-EDA & Insights Platform</h3>
 
-        <p class="project-summary">
-          An interactive analytics platform that converts raw CSV datasets into
-          structured exploratory analysis, data quality diagnostics, visual insights,
-          and executive-ready summaries. Designed to accelerate decision-making
-          while supporting governance, auditability, and reporting needs.
-        </p>
-
-        <div class="tags">
-          <span class="tag">BI & Executive Analytics</span>
-          <span class="tag">BI & Visualization</span>
-          <span class="tag">Risk, Governance & Controls</span>
-          <span class="tag">Python</span>
-          <span class="tag">Data Quality</span>
-        </div>
-
-        <div class="project-links">
-          <a href="https://shristi03.github.io/projects/auto-eda-platform.html" target="_blank">View Project Details</a>
-          <a href="#" target="_blank">GitHub</a>
-        </div>
       </div>
 
       <!-- Future projects will go here -->
@@ -188,7 +167,60 @@
   </main>
 
   <script>
-    document.getElementById("y").textContent = new Date().getFullYear();
-  </script>
+  // Footer year
+  document.getElementById("y").textContent = new Date().getFullYear();
+
+  // Auto-populate projects for this category
+  const CATEGORY_TAG = "Dashboards, BI & Analytics";
+  const grid = document.getElementById("projectsGrid");
+
+  fetch("../data/projects.json")
+    .then((res) => res.json())
+    .then((projects) => {
+      const filtered = projects.filter(
+        (p) => Array.isArray(p.tags) && p.tags.includes(CATEGORY_TAG)
+      );
+
+      if (filtered.length === 0) {
+        grid.innerHTML = `<p class="section-intro">No projects tagged with <b>${CATEGORY_TAG}</b> yet.</p>`;
+        return;
+      }
+
+      grid.innerHTML = filtered
+        .map((p) => {
+          const tagsHtml = (p.tags || [])
+            .map((t) => `<span class="tag">${t}</span>`)
+            .join("");
+
+          const detailsUrl = p.details_url || "#";
+          const githubUrl = p.github_url || "#";
+
+          return `
+            <div class="project-card">
+              <h3>${p.title || "Untitled Project"}</h3>
+
+              <p class="project-summary">
+                ${p.summary || ""}
+              </p>
+
+              <div class="tags">
+                ${tagsHtml}
+              </div>
+
+              <div class="project-links">
+                <a href="../${detailsUrl}" target="_blank" rel="noopener">View Project Details</a>
+                <a href="${githubUrl}" target="_blank" rel="noopener">GitHub</a>
+              </div>
+            </div>
+          `;
+        })
+        .join("");
+    })
+    .catch((err) => {
+      console.error(err);
+      grid.innerHTML = `<p class="section-intro">Could not load projects. Check that <b>data/projects.json</b> exists and is valid JSON.</p>`;
+    });
+</script>
+  
 </body>
 </html>

@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Auto-EDA & Insights Platform | Shristi Sharma</title>
+
+  <style>
+    :root{
+      --ink:#0f172a;
+      --muted:#475569;
+      --bg:#ffffff;
+      --panel:#f8fafc;
+      --line:#e2e8f0;
+      --brand:#0b2a45;
+      --chip:#eef2f7;
+      --shadow:0 18px 50px rgba(2, 8, 23, 0.10);
+      --radius:18px;
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+      color:var(--ink);
+      background:var(--bg);
+      line-height:1.6;
+    }
+
+    /* Top banner */
+    header{
+      background:var(--brand);
+      color:#fff;
+      padding:44px 28px 38px;
+    }
+    .wrap{max-width:1120px;margin:0 auto;}
+    .kicker{
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      font-size:12px;
+      opacity:.8;
+      margin:0 0 10px;
+    }
+    h1{
+      margin:0 0 10px;
+      font-size:36px;
+      letter-spacing:-0.02em;
+      line-height:1.15;
+    }
+    .subtitle{
+      margin:0;
+      max-width:900px;
+      opacity:.9;
+      font-size:16px;
+    }
+
+    /* Nav */
+    .crumbs{
+      margin-top:16px;
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      align-items:center;
+      font-size:14px;
+      opacity:.95;
+    }
+    .crumbs a{
+      color:#fff;
+      text-decoration:none;
+      border-bottom:1px solid rgba(255,255,255,.35);
+    }
+    .crumbs a:hover{border-bottom-color:#fff}
+    .dot{opacity:.6}
+
+    main{
+      padding:34px 28px 70px;
+    }
+
+    /* hero card */
+    .hero-card{
+      margin-top:-28px;
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      overflow:hidden;
+    }
+    .hero-top{
+      padding:22px 22px 18px;
+      border-bottom:1px solid var(--line);
+      background:linear-gradient(180deg,#ffffff 0%, #fbfdff 100%);
+    }
+    .meta{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      align-items:center;
+      margin-top:10px;
+    }
+    .chip{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 12px;
+      border-radius:999px;
+      background:var(--chip);
+      color:var(--muted);
+      font-size:13px;
+      border:1px solid rgba(226,232,240,.8);
+    }
+    .hero-actions{
+      padding:18px 22px;
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      align-items:center;
+      background:var(--panel);
+    }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:10px 14px;
+      border-radius:12px;
+      text-decoration:none;
+      font-weight:600;
+      font-size:14px;
+      border:1px solid var(--line);
+      background:#fff;
+      color:var(--ink);
+    }
+    .btn.primary{
+      background:var(--brand);
+      border-color:rgba(255,255,255,.12);
+      color:#fff;
+    }
+    .btn:hover{transform:translateY(-1px)}
+    .btn:active{transform:translateY(0px)}
+
+    /* sections */
+    .grid{
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap:18px;
+      margin-top:18px;
+    }
+
+    .card{
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      background:#fff;
+      box-shadow:0 10px 30px rgba(2,8,23,.06);
+    }
+    .card h2{
+      margin:0;
+      padding:18px 18px 0;
+      font-size:18px;
+      letter-spacing:-0.01em;
+    }
+    .card .body{
+      padding:10px 18px 18px;
+      color:var(--muted);
+      font-size:14.5px;
+    }
+    ul{
+      margin:10px 0 0;
+      padding-left:18px;
+    }
+    li{margin:6px 0}
+    .two-col{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:12px;
+      margin-top:10px;
+    }
+    .mini{
+      background:var(--panel);
+      border:1px solid var(--line);
+      border-radius:14px;
+      padding:12px 12px;
+    }
+    .mini b{color:var(--ink)}
+    .muted{color:var(--muted)}
+    .note{
+      border-left:4px solid var(--brand);
+      padding:10px 12px;
+      background:rgba(11,42,69,.05);
+      border-radius:10px;
+      margin-top:10px;
+    }
+
+    /* snapshots */
+    .snap-grid{
+      display:grid;
+      grid-template-columns:repeat(2, 1fr);
+      gap:12px;
+    }
+    .snap{
+      border:1px dashed var(--line);
+      border-radius:14px;
+      padding:14px;
+      background:#fff;
+      color:var(--muted);
+      min-height:110px;
+    }
+    .snap strong{color:var(--ink)}
+
+    footer{
+      margin-top:24px;
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    @media (max-width: 980px){
+      .grid{grid-template-columns:1fr}
+      .snap-grid{grid-template-columns:1fr}
+      h1{font-size:30px}
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="wrap">
+      <p class="kicker">Project Detail</p>
+      <h1>Auto-EDA & Insights Platform</h1>
+      <p class="subtitle">
+        Upload any CSV to generate explainable EDA, data quality diagnostics, visuals and executive-ready summaries—designed for fast decision support and reporting.
+      </p>
+
+      <div class="crumbs">
+        <a href="../index.html">Home</a>
+        <span class="dot">•</span>
+        <a href="../categories/dashboards-bi-analytics.html">Dashboards, BI & Analytics</a>
+        <span class="dot">•</span>
+        <span>Auto-EDA Platform</span>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="wrap">
+
+      <!-- HERO CARD -->
+      <section class="hero-card">
+        <div class="hero-top">
+          <div class="meta">
+            <span class="chip">Tags: BI & Analytics</span>
+            <span class="chip">Data Quality</span>
+            <span class="chip">Risk, Governance & Controls</span>
+            <span class="chip">Python</span>
+            <span class="chip">Streamlit</span>
+          </div>
+
+          <div class="note">
+            <b>Status:</b> Local demo working. Deployment pending (will add live link once hosted).
+          </div>
+        </div>
+
+        <div class="hero-actions">
+          <!-- When deployed, replace # with the live URL -->
+          <a class="btn primary" href="#" target="_blank" rel="noopener">Open Live App (Coming Soon)</a>
+
+          <!-- Replace this with your real repo path once you create it -->
+          <a class="btn" href="https://github.com/Shristi03" target="_blank" rel="noopener">View Code on GitHub</a>
+
+          <a class="btn" href="../categories/dashboards-bi-analytics.html">Back to Category</a>
+        </div>
+      </section>
+
+      <!-- MAIN CONTENT -->
+      <section class="grid">
+
+        <!-- LEFT: Narrative -->
+        <div class="card">
+          <h2>Problem Statement</h2>
+          <div class="body">
+            Analysts spend significant time repeating the same first-pass steps on new datasets—profiling columns, checking missingness, validating types, assessing quality risks, and building summary visuals. This creates delays and inconsistent reporting quality across teams.
+          </div>
+
+          <h2>Business Use Case</h2>
+          <div class="body">
+            Provide a fast, repeatable workflow that converts raw CSV files into structured insights suitable for:
+            <ul>
+              <li>Executive readouts (key signals, risks, and actionable bullets)</li>
+              <li>Dashboard design inputs (KPIs, trends, categorical breakdowns)</li>
+              <li>Data quality and governance review (PII heuristics, missingness, integrity checks)</li>
+            </ul>
+          </div>
+
+          <h2>What the App Does</h2>
+          <div class="body">
+            <div class="two-col">
+              <div class="mini"><b>Dataset Overview</b><br/><span class="muted">Shape, schema, column types, quick stats</span></div>
+              <div class="mini"><b>Quality & Risks</b><br/><span class="muted">Missingness, duplicates, outliers, potential issues</span></div>
+              <div class="mini"><b>Insights</b><br/><span class="muted">Top categorical insights, numeric summaries, correlations</span></div>
+              <div class="mini"><b>Exports</b><br/><span class="muted">Data dictionary + summary outputs for reporting</span></div>
+            </div>
+          </div>
+
+          <h2>Method & Architecture</h2>
+          <div class="body">
+            <ul>
+              <li><b>Frontend:</b> Streamlit multi-page navigation</li>
+              <li><b>Core:</b> Python EDA utilities (pandas + matplotlib)</li>
+              <li><b>Governance:</b> basic PII detection heuristics and quality flags</li>
+              <li><b>Outputs:</b> executive summary + reusable visuals + data dictionary</li>
+            </ul>
+          </div>
+
+          <h2>Results & Value</h2>
+          <div class="body">
+            <ul>
+              <li>Accelerates “time-to-insight” from raw file to executive summary</li>
+              <li>Improves consistency: standardized checks and outputs per dataset</li>
+              <li>Makes quality risks visible early (missingness, anomalies, PII hints)</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- RIGHT: Evidence + Links -->
+        <div class="card">
+          <h2>Tech Stack</h2>
+          <div class="body">
+            <ul>
+              <li>Python, pandas, numpy</li>
+              <li>matplotlib</li>
+              <li>Streamlit</li>
+              <li>Reusable “EDA modules” pattern (functions per capability)</li>
+            </ul>
+          </div>
+
+          <h2>Snapshots</h2>
+          <div class="body">
+            <div class="snap-grid">
+              <div class="snap">
+                <strong>Screenshot #1</strong><br/>
+                Add image later: <code>assets/projects/auto-eda/01-dashboard.png</code>
+              </div>
+              <div class="snap">
+                <strong>Screenshot #2</strong><br/>
+                Add image later: <code>assets/projects/auto-eda/02-quality.png</code>
+              </div>
+              <div class="snap">
+                <strong>Screenshot #3</strong><br/>
+                Add image later: <code>assets/projects/auto-eda/03-insights.png</code>
+              </div>
+              <div class="snap">
+                <strong>Screenshot #4</strong><br/>
+                Add image later: <code>assets/projects/auto-eda/04-dictionary.png</code>
+              </div>
+            </div>
+
+            <div class="note">
+              When you upload screenshots, I’ll update this section to render them nicely as a gallery.
+            </div>
+          </div>
+
+          <h2>Project Docs</h2>
+          <div class="body">
+            We can add a lightweight “whitepaper” section here next:
+            <ul>
+              <li>Requirements</li>
+              <li>Design decisions</li>
+              <li>Limitations</li>
+              <li>Next roadmap</li>
+            </ul>
+          </div>
+        </div>
+
+      </section>
+
+      <footer class="wrap">
+        © <span id="y"></span> Shristi Sharma • Portfolio Project Page
+      </footer>
+
+    </div>
+  </main>
+
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

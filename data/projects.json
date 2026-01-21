@@ -16,14 +16,14 @@
   },
 {
   "id": "pdf-rag-gemini",
-  "title": "PDF Question Answering with Gemini (RAG)",
+  "title": "Chat with your PDF's (RAG)",
   "summary": "A retrieval-augmented generation (RAG) application that allows users to upload PDFs and ask natural language questions, generating grounded answers using vector search and the Gemini API.",
   "tags": [
-    "AI (Generative / Agentic)",
+    "AI (Generative + Agentic)",
     "AI in Finance",
     "Strategic Decision Intelligence"
   ],
-  "details_url": "projects/pdf-rag-gemini.html",
+  "details_url": "projects/pdf-chat-rag.html",
   "github_url": "https://github.com/Shristi03",
   "status": "Completed"
 }

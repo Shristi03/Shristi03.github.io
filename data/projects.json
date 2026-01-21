@@ -1,0 +1,17 @@
+[
+  {
+    "id": "auto-eda-insights",
+    "title": "Auto-EDA & Insights Platform",
+    "summary": "Interactive analytics platform that converts CSV datasets into structured EDA, data quality diagnostics, visual insights, and executive-ready summaries.",
+    "tags": [
+      "Dashboards, BI & Analytics",
+      "BI & Visualization",
+      "Risk, Governance & Controls",
+      "Python",
+      "Data Quality"
+    ],
+    "details_url": "projects/auto-eda-insights.html",
+    "github_url": "https://github.com/Shristi03/auto-eda-insights",
+    "status": "In Progress"
+  }
+]

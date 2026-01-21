@@ -14,7 +14,6 @@
       --card:#ffffff;
       --border:#e2e8f0;
       --pill:#f1f5f9;
-      --shadow:0 18px 40px rgba(2,6,23,.08);
       --radius:18px;
       --max:1100px;
     }
@@ -47,7 +46,6 @@
       margin:0 auto;
       padding:44px 64px 64px;
     }
-
     .section-title{
       font-size:30px;
       margin:0 0 8px 0;
@@ -58,13 +56,11 @@
       color:var(--muted);
       max-width:900px;
     }
-
     .projects-grid{
       display:grid;
       grid-template-columns:1fr;
       gap:18px;
     }
-
     .project-card{
       background:var(--card);
       border:1px solid var(--border);
@@ -82,7 +78,6 @@
       color:var(--muted);
       max-width:950px;
     }
-
     .tags{
       display:flex;
       flex-wrap:wrap;
@@ -98,7 +93,6 @@
       color:#0b2a45;
       font-weight:600;
     }
-
     .project-links{
       display:flex;
       gap:18px;
@@ -137,7 +131,6 @@
 
 <body>
 
-  <!-- HEADER -->
   <header>
     <h1>AI in Finance</h1>
     <p>
@@ -145,7 +138,6 @@
     </p>
   </header>
 
-  <!-- CONTENT -->
   <main>
     <h2 class="section-title">Projects</h2>
     <p class="section-intro">
@@ -157,13 +149,12 @@
     </div>
   </main>
 
-  <!-- FOOTER -->
   <footer class="wrap">
     © <span id="y"></span> Shristi Sharma • Portfolio
   </footer>
 
   <script>
-    // ✅ IMPORTANT: This tag MUST exactly match the string in data/projects.json
+    // Must exactly match the tag string in data/projects.json
     const PAGE_TAG = "AI in Finance";
 
     const container = document.getElementById("projects");
@@ -180,10 +171,6 @@
 
     function makeCard(p){
       const tagsHtml = (p.tags || []).map(t => `<span class="tag">${escapeHtml(t)}</span>`).join("");
-
-      // details_url + github_url are expected in your JSON.
-      // details_url should be like: "projects/auto-eda-insights.html"
-      // github_url should be a full GitHub URL.
       const details = p.details_url ? `../${p.details_url}` : "#";
       const github = p.github_url || "#";
 
@@ -202,7 +189,6 @@
 
     async function load(){
       try{
-        // Because this file is /categories/... we go up one level to /data/projects.json
         const res = await fetch("../data/projects.json", { cache: "no-store" });
         if(!res.ok) throw new Error("Could not load projects.json");
 
@@ -224,4 +210,3 @@
   </script>
 </body>
 </html>
-

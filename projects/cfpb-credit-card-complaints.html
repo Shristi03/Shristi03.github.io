@@ -1,40 +1,331 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>CFPB Credit Card Complaints Analytics (2019–2026)</title>
-  <link rel="stylesheet" href="../assets/css/site.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CFPB Credit Card Complaints Analytics (2019–2026) | Project</title>
+
+  <style>
+    :root{
+      --navy:#0b2a45;
+      --text:#0f172a;
+      --muted:#475569;
+      --bg:#ffffff;
+      --card:#ffffff;
+      --border:#e2e8f0;
+      --pill:#f1f5f9;
+      --radius:18px;
+      --max:1100px;
+      --shadow:0 10px 24px rgba(2,6,23,.06);
+      --soft:#f8fafc;
+      --link:#0b4db8;
+    }
+
+    *{ box-sizing:border-box; }
+    body{
+      margin:0;
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+      color:var(--text);
+      background:var(--bg);
+      line-height:1.65;
+    }
+
+    header{
+      background:var(--navy);
+      color:#fff;
+      padding:56px 64px;
+    }
+    header h1{
+      margin:0 0 12px 0;
+      font-size:40px;
+      letter-spacing:-0.02em;
+    }
+    header p{
+      margin:0;
+      max-width:980px;
+      font-size:17px;
+      color:rgba(255,255,255,.9);
+    }
+
+    main{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:44px 64px;
+    }
+
+    .meta{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      align-items:center;
+      margin:0 0 22px 0;
+    }
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 12px;
+      border-radius:999px;
+      background:var(--pill);
+      border:1px solid var(--border);
+      color:var(--navy);
+      font-size:12px;
+      font-weight:700;
+      letter-spacing:.02em;
+    }
+
+    .links{
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+      margin:10px 0 28px 0;
+    }
+    .btn{
+      display:inline-block;
+      padding:10px 14px;
+      border-radius:999px;
+      border:1px solid var(--border);
+      background:#fff;
+      text-decoration:none;
+      font-weight:800;
+      color:var(--link);
+    }
+    .btn:hover{ text-decoration:underline; }
+
+    .card{
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      padding:26px;
+      box-shadow:var(--shadow);
+      margin:18px 0;
+    }
+
+    h2{
+      margin:0 0 10px 0;
+      font-size:26px;
+      letter-spacing:-0.02em;
+    }
+    p{ margin:0 0 10px 0; color:var(--text); }
+    .muted{ color:var(--muted); }
+
+    .grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:18px;
+      margin-top:14px;
+    }
+    .mini{
+      background:var(--soft);
+      border:1px solid var(--border);
+      border-radius:14px;
+      padding:16px 16px;
+    }
+    .mini h3{
+      margin:0 0 8px 0;
+      font-size:16px;
+      letter-spacing:-0.01em;
+    }
+    .mini ul{ margin:0; padding-left:18px; color:var(--muted); }
+    .mini li{ margin:6px 0; }
+
+    .tags{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin:10px 0 0 0;
+    }
+    .tag{
+      background:var(--pill);
+      border:1px solid var(--border);
+      padding:7px 12px;
+      border-radius:999px;
+      font-size:12px;
+      color:var(--navy);
+      font-weight:700;
+    }
+
+    .callout{
+      border-left:4px solid var(--navy);
+      background:#f7fafc;
+      padding:14px 16px;
+      border-radius:12px;
+      border:1px solid var(--border);
+      margin-top:12px;
+    }
+
+    footer.wrap{
+      max-width:var(--max);
+      margin:40px auto 0;
+      padding:22px 64px 40px;
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    @media (max-width:900px){
+      header, main, footer.wrap{ padding-left:22px; padding-right:22px; }
+      header h1{ font-size:32px; }
+      .grid{ grid-template-columns:1fr; }
+    }
+  </style>
 </head>
+
 <body>
   <header>
     <h1>CFPB Credit Card Complaints Analytics (2019–2026)</h1>
-    <p>Complaint trend analytics + narrative theme mining to support risk prioritization, compliance monitoring, and customer experience improvements.</p>
+    <p>
+      Trend + theme analytics on CFPB credit-card complaint data to surface consumer pain points,
+      operational friction, and compliance risk signals for issuers.
+    </p>
   </header>
 
   <main>
-    <h2>Problem</h2>
-    <ul>
-      <li>High complaint volumes can signal operational breakdowns, product friction, or emerging fraud/dispute patterns.</li>
-      <li>Leaders need early warning indicators + drilldowns to pinpoint what’s driving complaints.</li>
-    </ul>
+    <!-- META -->
+    <div class="meta">
+      <span class="badge">Domain: Consumer Finance</span>
+      <span class="badge">Focus: Complaints • Risk Signals • CX</span>
+      <span class="badge">Deliverable: Dashboard + Insight Brief</span>
+      <span class="badge">Status: Completed</span>
+    </div>
 
-    <h2>Approach</h2>
-    <ul>
-      <li>Data prep: standardize dates, product subtypes, issue labels; remove duplicates; validate missingness.</li>
-      <li>KPI layer: complaint volumes, resolution time, closure outcomes, channel mix, geography.</li>
-      <li>Text analytics: tokenization + theme extraction (topic modeling / clustering) on complaint narratives.</li>
-      <li>Dashboard: executive view + drilldowns by issue, issuer/product, state, and time.</li>
-    </ul>
+    <!-- LINKS -->
+    <div class="links">
+      <a class="btn" href="/categories/credit-cards-consumer-finance.html" rel="noopener">← Back to Category</a>
+      <a class="btn" href="https://github.com/Shristi03" target="_blank" rel="noopener">GitHub</a>
+      <!-- Optional: add a dataset link if you want -->
+      <!-- <a class="btn" href="#" target="_blank" rel="noopener">Dataset / Source</a> -->
+    </div>
 
-    <h2>Outputs</h2>
-    <ul>
-      <li>Executive dashboard with trend lines, heatmaps, and issue distribution.</li>
-      <li>Theme dictionary showing top complaint drivers and how they change over time.</li>
-      <li>Recommendations: reduce repeat drivers, tighten dispute workflow, and monitor emerging risk themes.</li>
-    </ul>
+    <!-- EXEC SUMMARY -->
+    <section class="card">
+      <h2>Executive Summary</h2>
+      <p class="muted">
+        This project analyzes CFPB credit-card complaints over 2019–2026 to identify where and why customers experience
+        recurring friction (billing disputes, fees, fraud/chargebacks, servicing issues). It combines time-series trends,
+        geography, and issue-level drilldowns with narrative/theme analysis to support early warning monitoring and
+        prioritization.
+      </p>
 
-    <p><a class="btn" href="../index.html">Back to Portfolio</a></p>
+      <div class="callout">
+        <b>Why it matters (finance context):</b>
+        complaint spikes often precede regulatory scrutiny, reputational risk, operational breakdowns, and avoidable cost
+        in servicing and disputes. A structured monitoring layer enables faster root-cause triage.
+      </div>
+    </section>
+
+    <!-- PROBLEM + USERS -->
+    <section class="card">
+      <h2>Problem & Stakeholders</h2>
+      <div class="grid">
+        <div class="mini">
+          <h3>Business Problem</h3>
+          <ul>
+            <li>Complaint volumes change over time, but leaders need to know <b>what’s driving the change</b>.</li>
+            <li>Narrative text contains rich signals, but is hard to operationalize without structure.</li>
+            <li>Teams need a repeatable view across <b>issue type, geography, and time</b>.</li>
+          </ul>
+        </div>
+        <div class="mini">
+          <h3>Primary Users</h3>
+          <ul>
+            <li>Consumer operations & servicing leadership</li>
+            <li>Compliance / risk governance teams</li>
+            <li>Product owners (fees, statements, disputes)</li>
+            <li>BI/analytics partners building monitoring</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- DATA + METHOD -->
+    <section class="card">
+      <h2>Data & Method</h2>
+      <div class="grid">
+        <div class="mini">
+          <h3>Data Inputs</h3>
+          <ul>
+            <li>CFPB complaint records (credit card-related)</li>
+            <li>Fields used: date received, issue/sub-issue, company, state, channel, timely response, disposition</li>
+            <li>Optional: complaint narratives for theme mining (if available)</li>
+          </ul>
+        </div>
+        <div class="mini">
+          <h3>Analytics Approach</h3>
+          <ul>
+            <li>Trend analysis: monthly/quarterly complaint volume & mix shifts</li>
+            <li>Segmentation: by issue, state, channel, and response metrics</li>
+            <li>Theme extraction: keyword/topic signals from narrative text (if present)</li>
+            <li>Action layer: convert insights into prioritization recommendations</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="callout">
+        <b>Data quality mindset:</b> standardize dates, validate missingness, deduplicate, normalize issue labels, and track
+        coverage differences across time windows (especially around 2020–2021 changes in behavior and disputes).
+      </div>
+    </section>
+
+    <!-- OUTPUTS -->
+    <section class="card">
+      <h2>Deliverables</h2>
+      <div class="grid">
+        <div class="mini">
+          <h3>Dashboard Views</h3>
+          <ul>
+            <li>Complaint trend lines (MoM / YoY)</li>
+            <li>Issue mix + top drivers</li>
+            <li>Geographic hotspots (state-level)</li>
+            <li>Channel & operational KPIs (e.g., timely response)</li>
+          </ul>
+        </div>
+        <div class="mini">
+          <h3>Insight Brief</h3>
+          <ul>
+            <li>Top recurring pain points & what changed recently</li>
+            <li>Where to investigate first (triage framework)</li>
+            <li>Risk/control lens: patterns that warrant monitoring</li>
+            <li>Recommendations with measurable KPIs</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESULTS / IMPACT (KEEP REALISTIC) -->
+    <section class="card">
+      <h2>Impact & Value</h2>
+      <ul class="muted">
+        <li>Creates an <b>early warning</b> monitoring layer for complaint spikes and theme shifts.</li>
+        <li>Improves root-cause speed by connecting <b>trend → issue → geography/channel → narrative signals</b>.</li>
+        <li>Supports governance-ready reporting by structuring metrics and drilldowns consistently over time.</li>
+      </ul>
+      <div class="callout">
+        If you want, I can also add a short “Metrics” section here (e.g., #complaints analyzed, #themes extracted),
+        but only if you share the numbers you want displayed.
+      </div>
+    </section>
+
+    <!-- TAGS (MATCH YOUR PORTFOLIO FILTERS) -->
+    <section class="card">
+      <h2>Portfolio Tags</h2>
+      <p class="muted">These tags should match the exact strings used across your category/capability pages.</p>
+      <div class="tags">
+        <span class="tag">Credit Cards &amp; Consumer Finance</span>
+        <span class="tag">Dashboards, BI &amp; Analytics</span>
+        <span class="tag">Risk, Governance &amp; Controls</span>
+        <span class="tag">BI &amp; Visualization</span>
+        <span class="tag">SQL</span>
+        <span class="tag">Python</span>
+      </div>
+    </section>
   </main>
+
+  <footer class="wrap">
+    © <span id="y"></span> Shristi Sharma • Portfolio
+  </footer>
+
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>

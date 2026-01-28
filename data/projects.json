@@ -29,6 +29,7 @@
 }
 ]
 ,
+[
 {
   "id": "cfpb-credit-card-complaints",
   "title": "CFPB Credit Card Complaints Analytics (2019–2026)",
@@ -45,4 +46,4 @@
   "github_url": "https://github.com/Shristi03",
   "status": "Completed"
 }
-
+]

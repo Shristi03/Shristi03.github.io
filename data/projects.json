@@ -27,4 +27,21 @@
   "github_url": "https://github.com/Shristi03",
   "status": "Completed"
 }
+,
+{
+  "id": "cfpb-credit-card-complaints",
+  "title": "CFPB Credit Card Complaints Analytics (2019–2026)",
+  "summary": "Analytics project using CFPB credit-card complaint data to identify trend shifts, recurring consumer pain points, geographic hotspots, and operational/compliance risk signals for issuers.",
+  "tags": [
+    "Credit Cards & Consumer Finance",
+    "Dashboards, BI & Analytics",
+    "BI & Visualization",
+    "Risk, Governance & Controls",
+    "SQL",
+    "Python"
+  ],
+  "details_url": "projects/cfpb-credit-card-complaints.html",
+  "github_url": "https://github.com/Shristi03",
+  "status": "Completed"
+}
 ]

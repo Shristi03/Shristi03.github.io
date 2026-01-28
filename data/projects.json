@@ -1,26 +1,4 @@
 [
-  "id": "cfpb-credit-card-complaints-2019-2026",
-  "title": "CFPB Credit Card Complaints Analytics (2019–2026)",
-  "one_liner": "Trend + root-cause analytics on CFPB credit-card complaints to surface drivers of customer friction, dispute patterns, and high-risk issue themes.",
-  "tags": ["risk-quant-analytics", "dashboards-bi-analytics", "ai-generative-agentic"],
-  "domain": ["Banking", "Consumer Compliance", "Customer Operations"],
-  "stack": ["SQL", "Python", "Pandas", "Power BI", "NLP (Topic Modeling)"],
-  "impact_bullets": [
-    "Built complaint KPI layer (volumes, rates, time-to-close, dispute types) with drilldowns by issuer/product, channel, and state.",
-    "Performed text analytics on complaint narratives to extract themes (fees, billing disputes, fraud, chargebacks) and quantify emerging risks.",
-    "Delivered an executive dashboard + actionable recommendations to reduce complaint recurrence and strengthen compliance monitoring."
-  ],
-  "links": {
-    "github": "",
-    "demo": "",
-    "writeup": ""
-  },
-  "media": {
-    "thumb": "assets/img/projects/cfpb-complaints.png",
-    "alt": "CFPB credit card complaints analytics dashboard thumbnail"
-  }
-  ]
-[
   {
     "id": "auto-eda-insights",
     "title": "Auto-EDA & Insights Platform",

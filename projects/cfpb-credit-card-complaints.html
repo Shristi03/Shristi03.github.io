@@ -244,6 +244,65 @@
     }
     code{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;}
 
+    /* Lightbox (click-to-zoom) */
+    .lightbox{
+      position:fixed;
+      inset:0;
+      background:rgba(15,23,42,.72);
+      display:none;
+      align-items:center;
+      justify-content:center;
+      padding:24px;
+      z-index:9999;
+    }
+    .lightbox.open{ display:flex; }
+    .lightbox-inner{
+      width:min(1100px, 96vw);
+      max-height:88vh;
+      background:#fff;
+      border-radius:16px;
+      border:1px solid var(--line);
+      box-shadow:0 24px 70px rgba(2,8,23,.35);
+      overflow:hidden;
+    }
+    .lightbox-top{
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      align-items:center;
+      padding:12px 14px;
+      background:var(--panel);
+      border-bottom:1px solid var(--line);
+    }
+    .lightbox-title{
+      font-weight:700;
+      font-size:14px;
+      color:var(--ink);
+    }
+    .lightbox-close{
+      border:1px solid var(--line);
+      background:#fff;
+      border-radius:10px;
+      padding:8px 10px;
+      cursor:pointer;
+      font-weight:700;
+    }
+    .lightbox-img{
+      display:block;
+      width:100%;
+      height:auto;
+      max-height: calc(88vh - 54px);
+      object-fit:contain;
+      background:#fff;
+    }
+    .zoomable{
+      cursor: zoom-in;
+      transition: transform .12s ease;
+    }
+    .zoomable:hover{
+      transform: translateY(-1px);
+    }
+
     footer{
       margin-top:24px;
       color:var(--muted);
@@ -294,7 +353,7 @@
           </div>
 
           <div class="note">
-            <b>Status:</b> Completed. Interactive dashboard documented via downloadable report and visuals (sharing constraints).
+            <b>Status:</b> Completed. Interactive dashboard documented via downloadable report and visuals due to sharing constraints.
           </div>
         </div>
 
@@ -422,7 +481,7 @@
             </table>
           </div>
 
-          <h2> Example Metrics &amp; DAX Logic </h2>
+          <h2> Example Metrics &amp; DAX Logic</h2>
           <div class="body">
             <pre><code>Total Complaints =
 COUNT(Complaint[Complaint ID])
@@ -438,7 +497,7 @@ DIVIDE([Running Total Complaints], [Total Complaints])</code></pre>
             </div>
           </div>
 
-          <h2> Business Value</h2>
+          <h2> Business Impact &amp; Decision Relevance</h2>
           <div class="body">
             This analysis demonstrates how consumer complaint data can be transformed into a decision-making asset, helping institutions:
             <ul>
@@ -464,97 +523,141 @@ DIVIDE([Running Total Complaints], [Total Complaints])</code></pre>
           </div>
 
           <h2>Snapshots</h2>
-<div class="body">
-  <div class="snap-grid">
+          <div class="body">
+            <div class="snap-grid">
 
-    <div class="snap">
-      <strong>Executive Summary</strong><br/><br/>
-      <img
-        src="../assets/projects/cfpb/CFPB Executive Summary.png"
-        alt="CFPB credit card complaints executive summary"
-        style="width:100%; border-radius:12px;"
-      />
-    </div>
+              <div class="snap">
+                <strong>Executive Summary</strong><br/><br/>
+                <img
+                  class="zoomable"
+                  src="../assets/projects/cfpb/CFPB Executive Summary.png"
+                  alt="CFPB credit card complaints executive summary"
+                  data-full="../assets/projects/cfpb/CFPB Executive Summary.png"
+                  data-title="Executive Summary"
+                  style="width:100%; border-radius:12px;"
+                />
+              </div>
 
-    <div class="snap">
-      <strong>Trend Analysis</strong><br/><br/>
-      <img
-        src="../assets/projects/cfpb/Trend Analysis.png"
-        alt="Trend analysis of CFPB credit card complaints"
-        style="width:100%; border-radius:12px;"
-      />
-    </div>
+              <div class="snap">
+                <strong>Issue Analysis</strong><br/><br/>
+                <img
+                  class="zoomable"
+                  src="../assets/projects/cfpb/Issue Analysis.png"
+                  alt="Issue-level analysis of CFPB credit card complaints"
+                  data-full="../assets/projects/cfpb/Issue Analysis.png"
+                  data-title="Issue Analysis"
+                  style="width:100%; border-radius:12px;"
+                />
+              </div>
 
-    <div class="snap">
-      <strong>Pareto Analysis</strong><br/><br/>
-      <img
-        src="../assets/projects/cfpb/Pareto Analysis.png"
-        alt="Pareto analysis of CFPB credit card complaint issues"
-        style="width:100%; border-radius:12px;"
-      />
-    </div>
+              <div class="snap">
+                <strong>Pareto Analysis</strong><br/><br/>
+                <img
+                  class="zoomable"
+                  src="../assets/projects/cfpb/Pareto Analysis.png"
+                  alt="Pareto analysis of CFPB credit card complaint issues"
+                  data-full="../assets/projects/cfpb/Pareto Analysis.png"
+                  data-title="Pareto Analysis"
+                  style="width:100%; border-radius:12px;"
+                />
+              </div>
 
-    <div class="snap">
-      <strong>Primary Issues Breakdown</strong><br/><br/>
-      <img
-        src="../assets/projects/cfpb/primary issues.png"
-        alt="Primary complaint issues breakdown"
-        style="width:100%; border-radius:12px;"
-      />
-    </div>
+              <div class="snap">
+                <strong>Resolution and Timelines</strong><br/><br/>
+                <img
+                  class="zoomable"
+                  src="../assets/projects/cfpb/Resolution and timelines.png"
+                  alt="Resolution timelines and response patterns"
+                  data-full="../assets/projects/cfpb/Resolution and timelines.png"
+                  data-title="Resolution and Timelines"
+                  style="width:100%; border-radius:12px;"
+                />
+              </div>
 
-    <div class="snap">
-      <strong>Issue Analysis</strong><br/><br/>
-      <img
-        src="../assets/projects/cfpb/Issue Analysis.png"
-        alt="Issue-level analysis of CFPB credit card complaints"
-        style="width:100%; border-radius:12px;"
-      />
-    </div>
+              <div class="snap">
+                <strong>Risk and Consumer Impact</strong><br/><br/>
+                <img
+                  class="zoomable"
+                  src="../assets/projects/cfpb/Risk and Consumer Impact.png"
+                  alt="Risk and consumer impact analysis"
+                  data-full="../assets/projects/cfpb/Risk and Consumer Impact.png"
+                  data-title="Risk and Consumer Impact"
+                  style="width:100%; border-radius:12px;"
+                />
+              </div>
 
-    <div class="snap">
-      <strong>Total Complaints by State</strong><br/><br/>
-      <img
-        src="../assets/projects/cfpb/total complaints by state.png"
-        alt="Total CFPB credit card complaints by state"
-        style="width:100%; border-radius:12px;"
-      />
-    </div>
+              <div class="snap">
+                <strong>Total Complaints by Resolution</strong><br/><br/>
+                <img
+                  class="zoomable"
+                  src="../assets/projects/cfpb/Total Complaints by Resolution.png"
+                  alt="Total CFPB credit card complaints by resolution"
+                  data-full="../assets/projects/cfpb/Total Complaints by Resolution.png"
+                  data-title="Total Complaints by Resolution"
+                  style="width:100%; border-radius:12px;"
+                />
+              </div>
 
-    <div class="snap">
-      <strong>Total Complaints by Resolution</strong><br/><br/>
-      <img
-        src="../assets/projects/cfpb/Total Complaints by Resolution.png"
-        alt="Total CFPB credit card complaints by resolution"
-        style="width:100%; border-radius:12px;"
-      />
-    </div>
+              <div class="snap">
+                <strong>Trend Analysis</strong><br/><br/>
+                <img
+                  class="zoomable"
+                  src="../assets/projects/cfpb/Trend Analysis.png"
+                  alt="Trend analysis of CFPB credit card complaints"
+                  data-full="../assets/projects/cfpb/Trend Analysis.png"
+                  data-title="Trend Analysis"
+                  style="width:100%; border-radius:12px;"
+                />
+              </div>
 
-    <div class="snap">
-      <strong>Resolution Timelines</strong><br/><br/>
-      <img
-        src="../assets/projects/cfpb/Resolution and timelines.png"
-        alt="Resolution timelines and response patterns"
-        style="width:100%; border-radius:12px;"
-      />
-    </div>
+              <div class="snap">
+                <strong>Primary Issues</strong><br/><br/>
+                <img
+                  class="zoomable"
+                  src="../assets/projects/cfpb/primary issues.png"
+                  alt="Primary complaint issues breakdown"
+                  data-full="../assets/projects/cfpb/primary issues.png"
+                  data-title="Primary Issues"
+                  style="width:100%; border-radius:12px;"
+                />
+              </div>
 
-    <div class="snap">
-      <strong>Risk & Consumer Impact</strong><br/><br/>
-      <img
-        src="../assets/projects/cfpb/Risk and Consumer Impact.png"
-        alt="Risk and consumer impact analysis"
-        style="width:100%; border-radius:12px;"
-      />
-    </div>
+              <div class="snap">
+                <strong>Total Complaints by State</strong><br/><br/>
+                <img
+                  class="zoomable"
+                  src="../assets/projects/cfpb/total complaints by state.png"
+                  alt="Total CFPB credit card complaints by state"
+                  data-full="../assets/projects/cfpb/total complaints by state.png"
+                  data-title="Total Complaints by State"
+                  style="width:100%; border-radius:12px;"
+                />
+              </div>
 
-  </div>
+            </div>
 
-  <div class="note">
-    These visuals summarize key complaint drivers, risk signals, and operational pressure points derived from CFPB consumer complaint data.
-  </div>
-</div>
+            <div class="note">
+              These visuals summarize key complaint drivers, risk signals, and operational pressure points derived from CFPB consumer complaint data.
+            </div>
 
+            <div class="note" style="margin-top:14px;">
+              <b>Downloads:</b> Want to review the interactive Power BI file locally?
+              <div style="margin-top:10px; display:flex; gap:10px; flex-wrap:wrap;">
+                <a
+                  class="btn"
+                  href="../assets/downloads/Credit%20Card%20Consumer%20Complaints%20Analytics.pbix"
+                  download
+                >
+                  Download Power BI (.pbix)
+                </a>
+              </div>
+              <div class="muted" style="margin-top:8px; font-size:13px;">
+                Requires Power BI Desktop. Dataset is not included in this portfolio site.
+              </div>
+            </div>
+
+          </div>
+        </div>
 
       </section>
 
@@ -565,8 +668,58 @@ DIVIDE([Running Total Complaints], [Total Complaints])</code></pre>
     </div>
   </main>
 
+  <!-- Lightbox -->
+  <div id="lightbox" class="lightbox" aria-hidden="true">
+    <div class="lightbox-inner" role="dialog" aria-modal="true" aria-label="Image preview">
+      <div class="lightbox-top">
+        <div id="lightboxTitle" class="lightbox-title">Preview</div>
+        <button id="lightboxClose" class="lightbox-close" type="button">Close</button>
+      </div>
+      <img id="lightboxImg" class="lightbox-img" src="" alt="Expanded view" />
+    </div>
+  </div>
+
   <script>
+    // year
     document.getElementById("y").textContent = new Date().getFullYear();
+
+    // lightbox
+    const lb = document.getElementById("lightbox");
+    const lbImg = document.getElementById("lightboxImg");
+    const lbTitle = document.getElementById("lightboxTitle");
+    const lbClose = document.getElementById("lightboxClose");
+
+    function openLightbox(src, title){
+      lbImg.src = src;
+      lbTitle.textContent = title || "Preview";
+      lb.classList.add("open");
+      lb.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeLightbox(){
+      lb.classList.remove("open");
+      lb.setAttribute("aria-hidden", "true");
+      lbImg.src = "";
+      document.body.style.overflow = "";
+    }
+
+    document.addEventListener("click", (e) => {
+      const img = e.target.closest("img.zoomable");
+      if(img){
+        openLightbox(img.dataset.full || img.src, img.dataset.title || img.alt);
+      }
+    });
+
+    lbClose.addEventListener("click", closeLightbox);
+
+    lb.addEventListener("click", (e) => {
+      if(e.target === lb) closeLightbox();
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if(e.key === "Escape") closeLightbox();
+    });
   </script>
 </body>
 </html>

@@ -167,6 +167,7 @@
       padding-left:18px;
     }
     li{margin:6px 0}
+
     .two-col{
       display:grid;
       grid-template-columns:1fr 1fr;
@@ -205,6 +206,44 @@
     }
     .snap strong{color:var(--ink)}
 
+    /* Table */
+    table{
+      width:100%;
+      border-collapse:separate;
+      border-spacing:0;
+      border:1px solid var(--line);
+      border-radius:14px;
+      overflow:hidden;
+      background:#fff;
+      margin-top:10px;
+    }
+    th, td{
+      text-align:left;
+      padding:12px 12px;
+      border-bottom:1px solid var(--line);
+      font-size:14px;
+      vertical-align:top;
+    }
+    th{
+      background:var(--panel);
+      color:var(--ink);
+      font-weight:700;
+    }
+    tr:last-child td{ border-bottom:none; }
+
+    /* Code */
+    pre{
+      background:var(--panel);
+      border:1px solid var(--line);
+      border-radius:14px;
+      padding:12px;
+      overflow:auto;
+      color:var(--ink);
+      font-size:13px;
+      margin:10px 0 0;
+    }
+    code{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;}
+
     footer{
       margin-top:24px;
       color:var(--muted);
@@ -225,7 +264,7 @@
       <p class="kicker">Project Detail</p>
       <h1>CFPB Credit Card Complaints Analytics (2019–2026)</h1>
       <p class="subtitle">
-        Complaint trend + theme analytics using CFPB data to surface consumer pain points, dispute drivers, and operational / compliance risk signals—packaged as an executive dashboard and monitoring brief.
+        📊 Credit Card Consumer Complaints — Risk, Operations &amp; Consumer Impact Analysis (CFPB Data)
       </p>
 
       <div class="crumbs">
@@ -245,24 +284,26 @@
       <section class="hero-card">
         <div class="hero-top">
           <div class="meta">
-            <span class="chip">Tags: Credit Cards &amp; Consumer Finance</span>
+            <span class="chip">Credit Cards &amp; Consumer Finance</span>
             <span class="chip">Dashboards, BI &amp; Analytics</span>
             <span class="chip">BI &amp; Visualization</span>
             <span class="chip">Risk, Governance &amp; Controls</span>
             <span class="chip">SQL</span>
             <span class="chip">Python</span>
+            <span class="chip">Power BI (DAX)</span>
           </div>
 
           <div class="note">
-            <b>Status:</b> Completed. Dashboard + insights write-up ready (add screenshots + repo link as you finalize packaging).
+            <b>Status:</b> Completed. Interactive dashboard documented via downloadable report and visuals (sharing constraints).
           </div>
         </div>
 
         <div class="hero-actions">
-          <!-- If you later host a live dashboard/report, replace # with the URL -->
-          <a class="btn primary" href="#" target="_blank" rel="noopener">Open Dashboard (Coming Soon)</a>
+          <!-- Update this path to the exact PDF filename you upload -->
+          <a class="btn primary" href="../assets/reports/CFPB_Credit_Card_Complaints_Analytics_Report.pdf" download>
+            Download Project Report (PDF)
+          </a>
 
-          <!-- Replace with your repo URL once you publish the project folder/repo -->
           <a class="btn" href="https://github.com/Shristi03" target="_blank" rel="noopener">View Code on GitHub</a>
 
           <a class="btn" href="../categories/credit-cards-consumer-finance.html">Back to Category</a>
@@ -274,82 +315,152 @@
 
         <!-- LEFT: Narrative -->
         <div class="card">
-          <h2>Problem Statement</h2>
+          <h2>🔎 Project Overview</h2>
           <div class="body">
-            CFPB complaint data contains high-signal indicators of customer friction (billing disputes, fees, fraud/chargebacks, servicing issues).
-            However, teams often lack a structured way to track how complaint drivers change over time and where the “hotspots” are.
-            This project builds a repeatable analytics layer to monitor complaint trends and translate narratives into actionable themes.
-          </div>
-
-          <h2>Business Use Case</h2>
-          <div class="body">
-            Build a monitoring view that helps stakeholders:
-            <ul>
-              <li>Detect <b>trend shifts</b> (spikes, seasonality, sustained changes) across 2019–2026</li>
-              <li>Identify top <b>issue drivers</b> and how their mix evolves over time</li>
-              <li>Pinpoint <b>geographic hotspots</b> and channel patterns</li>
-              <li>Support <b>risk/compliance review</b> with consistent, audit-friendly reporting</li>
-            </ul>
-          </div>
-
-          <h2>What the Analysis Delivers</h2>
-          <div class="body">
-            <div class="two-col">
-              <div class="mini"><b>Trend Monitoring</b><br/><span class="muted">Monthly/quarterly volume trends, change detection, mix shifts</span></div>
-              <div class="mini"><b>Issue Breakdown</b><br/><span class="muted">Top issues/sub-issues; dispute and servicing signals</span></div>
-              <div class="mini"><b>Geo & Channel Insights</b><br/><span class="muted">State-level hotspots; channel patterns and anomalies</span></div>
-              <div class="mini"><b>Theme Signals</b><br/><span class="muted">Narrative-derived themes (optional) for root-cause triage</span></div>
+            This project analyzes hundreds of thousands of U.S. consumer credit card complaints sourced from the
+            Consumer Financial Protection Bureau (CFPB) to uncover systemic risk drivers, operational inefficiencies,
+            and consumer harm patterns across products, geographies, and issue types.
+            <div class="note">
+              The objective was not just descriptive analytics, but to translate complaint data into <b>financial</b>,
+              <b>operational</b>, and <b>regulatory</b> insights that matter to banks, risk teams, and executives.
             </div>
           </div>
 
-          <h2>Method & Architecture</h2>
+          <h2>📂 Dataset</h2>
           <div class="body">
             <ul>
-              <li><b>Data Prep:</b> standardize dates/labels, validate missingness, deduplicate, normalize issue fields</li>
-              <li><b>Metrics Layer:</b> volume trends, issue mix, geographic distribution, operational flags (if available)</li>
-              <li><b>Text/Themes (optional):</b> keyword + topic/theme extraction from narrative text to quantify emerging issues</li>
-              <li><b>Outputs:</b> dashboard-ready dataset + executive insights brief for prioritization</li>
+              <li><b>Source:</b> CFPB Public Consumer Complaint Database</li>
+              <li><b>Scope:</b> Credit card–related complaints across multiple years</li>
+              <li><b>Key fields:</b> Primary issue, Timely response flag, Resolution outcome, State, Complaint volume over time</li>
             </ul>
+            <div class="note">
+              This dataset represents real consumer friction points that directly influence <b>cost-to-serve</b>,
+              <b>regulatory scrutiny</b>, and <b>brand trust</b>.
+            </div>
+          </div>
+
+          <h2>🧠 Analytical Approach</h2>
+          <div class="body">
+            <ul>
+              <li><b>Trend analysis</b> to identify long-term growth and structural shifts in complaints</li>
+              <li><b>Pareto analysis</b> to isolate the small set of issues driving the majority of complaints</li>
+              <li><b>State-level analysis</b> to surface geographic concentration and regulatory exposure</li>
+              <li><b>Operational risk analysis</b> using untimely response rates as a proxy for process complexity</li>
+              <li><b>Outcome analysis</b> to understand how complaints are resolved and at what cost</li>
+            </ul>
+            <div class="note">
+              All metrics were modeled using <b>Power BI with custom DAX measures</b>, enabling dynamic filtering and drill-downs.
+            </div>
+          </div>
+
+          <h2>📈 Key Findings &amp; Business Interpretation</h2>
+          <div class="body">
+            <ul>
+              <li>
+                <b>1. Complaint Growth Signals Rising Consumer and Operational Pressure</b><br/>
+                Total complaints increase sharply over time, particularly post-2022.<br/>
+                <span class="muted"><b>Implication:</b> Rising transaction volume, digital usage, and consumer sensitivity increase pressure on servicing operations and complaint management infrastructure.</span>
+              </li>
+
+              <li>
+                <b>2. A Small Number of Issues Drive the Majority of Risk</b><br/>
+                ~20% of issue categories generate ~80% of complaints, led by purchase disputes, acquisition issues, and credit reporting inaccuracies.<br/>
+                <span class="muted"><b>Implication:</b> Targeted fixes in a few high-impact areas can materially reduce complaint volume, regulatory exposure, and servicing cost.</span>
+              </li>
+
+              <li>
+                <b>3. Acquisition and Onboarding Are Major Value Leaks</b><br/>
+                “Getting a credit card” ranks among the top complaint drivers.<br/>
+                <span class="muted"><b>Implication:</b> Banks incur marketing, underwriting, and onboarding costs for customers who never successfully onboard — a customer acquisition efficiency risk with direct P&amp;L impact.</span>
+              </li>
+
+              <li>
+                <b>4. Untimely Responses Signal Operational Complexity</b><br/>
+                Certain issues show disproportionately high untimely response rates (e.g., card usage, payment processing).<br/>
+                <span class="muted"><b>Implication:</b> These cases require cross-team coordination, lead to repeat contacts/escalations, and increase reputational risk.</span>
+              </li>
+
+              <li>
+                <b>5. Geographic Concentration Creates Regulatory Hotspots</b><br/>
+                Complaints are heavily concentrated in large states such as CA, TX, FL, and NY.<br/>
+                <span class="muted"><b>Implication:</b> These regions represent outsized regulatory and legal exposure, especially where consumer protection enforcement is strongest.</span>
+              </li>
+            </ul>
+          </div>
+
+          <h2>⚠️ Risk &amp; Consumer Impact Lens</h2>
+          <div class="body">
+            <table>
+              <thead>
+                <tr>
+                  <th style="width:32%;">Risk Type</th>
+                  <th>How It Manifests</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><b>Operational Risk</b></td>
+                  <td>High complaint volume, untimely responses, process breakdowns</td>
+                </tr>
+                <tr>
+                  <td><b>Conduct Risk</b></td>
+                  <td>Billing disputes, inaccurate reporting, unclear disclosures</td>
+                </tr>
+                <tr>
+                  <td><b>Financial Risk</b></td>
+                  <td>Increased servicing costs, refunds, remediation</td>
+                </tr>
+                <tr>
+                  <td><b>Reputational Risk</b></td>
+                  <td>Consumer distrust, regulatory attention, negative sentiment</td>
+                </tr>
+                <tr>
+                  <td><b>Regulatory Risk</b></td>
+                  <td>CFPB scrutiny, enforcement actions, compliance obligations</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h2>🧮 Example Metrics &amp; DAX Logic (Simplified)</h2>
+          <div class="body">
+            <pre><code>Total Complaints =
+COUNT(Complaint[Complaint ID])
+
+Untimely Response Rate =
+DIVIDE([Untimely Complaints], [Total Complaints])
+
+Pareto Cumulative % =
+DIVIDE([Running Total Complaints], [Total Complaints])</code></pre>
 
             <div class="note">
-              <b>Governance lens:</b> complaints can be treated as early-warning signals. The monitoring layer supports controls-minded triage and consistent executive reporting.
+              These measures enabled <b>risk prioritization</b>, not just reporting.
             </div>
           </div>
 
-          <h2>Results & Value</h2>
+          <h2>🏦 Why This Project Matters</h2>
           <div class="body">
+            This analysis demonstrates how consumer complaint data can be transformed into a decision-making asset, helping institutions:
             <ul>
-              <li>Creates a <b>repeatable monitoring workflow</b> for complaint volumes and driver changes</li>
-              <li>Speeds up root-cause triage by linking <b>trend → issue → location/channel → theme signals</b></li>
-              <li>Enables leadership-ready reporting for <b>customer experience + risk/compliance</b> stakeholders</li>
+              <li>Reduce avoidable complaints</li>
+              <li>Improve operational efficiency</li>
+              <li>Prioritize compliance investments</li>
+              <li>Protect brand trust and customer lifetime value</li>
             </ul>
           </div>
         </div>
 
         <!-- RIGHT: Evidence + Links -->
         <div class="card">
-          <h2>Tech Stack</h2>
+          <h2>🎯 Skills Demonstrated</h2>
           <div class="body">
             <ul>
-              <li>SQL (aggregation / KPI layer)</li>
-              <li>Python (pandas for transforms, optional text analytics)</li>
-              <li>Power BI / Tableau (dashboarding)</li>
-              <li>CSV-based pipeline (clean → model → visualize)</li>
+              <li>Risk &amp; consumer analytics</li>
+              <li>Power BI &amp; DAX modeling</li>
+              <li>Executive-ready storytelling</li>
+              <li>Regulatory and financial interpretation</li>
+              <li>Data-driven decision framing</li>
             </ul>
-          </div>
-
-          <h2>Key Metrics (Examples)</h2>
-          <div class="body">
-            <ul>
-              <li>Total complaints over time (MoM / YoY)</li>
-              <li>Issue distribution & mix shift</li>
-              <li>Top states / hotspots</li>
-              <li>Channel patterns (if available)</li>
-              <li>Theme frequency (if narratives used)</li>
-            </ul>
-            <div class="note">
-              If you share your real numbers (counts, top issues, top states), I’ll plug them in as crisp “results bullets” on this page.
-            </div>
           </div>
 
           <h2>Snapshots</h2>
@@ -361,32 +472,29 @@
               </div>
               <div class="snap">
                 <strong>Screenshot #2</strong><br/>
-                Issue mix: <code>assets/projects/cfpb/02-issues.png</code>
+                Pareto / issue mix: <code>assets/projects/cfpb/02-pareto-issues.png</code>
               </div>
               <div class="snap">
                 <strong>Screenshot #3</strong><br/>
-                Geo hotspots: <code>assets/projects/cfpb/03-geo.png</code>
+                State hotspots: <code>assets/projects/cfpb/03-geo-hotspots.png</code>
               </div>
               <div class="snap">
                 <strong>Screenshot #4</strong><br/>
-                Theme signals: <code>assets/projects/cfpb/04-themes.png</code>
+                Untimely response lens: <code>assets/projects/cfpb/04-untimely.png</code>
               </div>
             </div>
 
             <div class="note">
-              Once you upload screenshots, I’ll convert this into a clean image gallery (same style as your Auto-EDA page).
+              Once you upload screenshots, I can convert this into a clean image gallery (same style as your Auto-EDA page).
             </div>
           </div>
 
-          <h2>Project Docs</h2>
+          <h2>Notes</h2>
           <div class="body">
-            Optional add-ons you can include next:
-            <ul>
-              <li>Data dictionary (fields + definitions)</li>
-              <li>Dashboard spec (pages, slicers, KPIs)</li>
-              <li>Risk/control mapping (what signals matter & why)</li>
-              <li>Roadmap (automation, alerting, model enhancements)</li>
-            </ul>
+            <div class="note">
+              <b>Sharing approach:</b> The interactive dashboard is represented via the downloadable PDF report and visuals due to access/sharing constraints.
+              This is consistent with how enterprise teams share analyses when direct report publishing is restricted.
+            </div>
           </div>
         </div>
 
